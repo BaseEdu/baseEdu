@@ -1,641 +1,983 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no">
-    <meta http-equiv="content-type" content="text/html;charset=gb2312">
-    <meta name="description" content="倍思教育,倍思教育科技">
-    <meta name="keywords" content="倍思教育|倍思教育科技">
-    <title>倍思教育科技</title>
-    <link rel="stylesheet" type="text/css" href="https://v3.bootcss.com/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.0.2/fullpage.min.css">
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.3.5/css/swiper.min.css"/>
-    <link rel="stylesheet" type="text/css" href="./css/animate.min.css">
-    <link rel="stylesheet" type="text/css" href="./css/common.css?v=1">
-    <style type="text/css">
-        #bannerSwiper{height: 100%;}
-        #bannerSwiper .swiper-slide{overflow: hidden;}
-        #bannerSwiper .pagination { position: absolute; left: 0; text-align: center; bottom:3.75rem; width: 100%; z-index: 999;margin: 0; }
-        #bannerSwiper .swiper-pagination-bullet{ display: inline-block; width: 36px; height: 6px; opacity:1; border-radius:0; background: rgba(254,254,254,0.3); margin: 0 1rem; cursor: pointer; transition: background 0.3s ease-in-out;border-radius: 3px;height:6px; }
-        #bannerSwiper .swiper-pagination-bullet-active{ background: #fefefe;}
-        #bannerSwiper .banner-bg{display:block;width: 100%;height: auto;position: relative;z-index: 1;}
-        #bannerSwiper .bannerInfo_container{width:100%;height:100%;display: -webkit-box;display: -webkit-flex;display: -ms-flexbox;display: flex;-webkit-box-orient: vertical;-webkit-flex-direction: column;-ms-flex-direction: column;flex-direction: column;webkit-box-align: center;-webkit-align-items: center;-ms-flex-align: center;align-items: center;-webkit-box-pack: center;-webkit-justify-content: center;-ms-flex-pack: center;justify-content: center;
-            position: absolute;top:0;left: 0;z-index: 2;
-        }
-        #bannerSwiper .bannerInfo{color: #ffffff;text-align: center;}
-        #bannerSwiper .bannerInfo span{display: block;}
-        @media (min-width: 768px){
-            #bannerSwiper .bannerInfo{font-size: 3.5rem;line-height: 1.6;}
-            #bannerSwiper .bannerInfo-img{height:14.537037%;margin-top: 3.125rem;}
-            #bannerSwiper .swiper-pagination-bullet{width: 5rem;}
-            .index-page2{background-color: #e5e7e8;}
-            .index-page3{background-image: url(./images/index_page3_bg.png);}
-            .index-page4{background-image: url(./images/index_page4_bg.png);}
-            .index-page2-icon-box,
-            .index-page2-img,
-            .index-page3-img{position: absolute;left: 50%;top: 0;height: 100%;transform: translateX(-50%)}
-            .index-page2-img,
-            .index-page3-img{-webkit-transition: all .3s ease;-moz-transition: all .3s ease;-ms-transition: all .3s ease;-o-transition: all .3s ease;transition: all .3s ease;opacity: 0;}
-            .index-page2-img.show {opacity: 1;}
-            .index-page2-img.text1 {top: 51%;z-index: 3;-webkit-transition-duration: .6s;-moz-transition-duration: .6s;-ms-transition-duration: .6s;-o-transition-duration: .6s;transition-duration: .6s;}
-            .index-page2-img.text1.show {top: 41%;-webkit-transition-delay: .7s;-o-transition-delay: .7s;-moz-transition-delay: .7s;-ms-transition-delay: .7s;transition-delay: .7s}
-            .index-page2-img.text1.title {top: 10%;width: auto;height: 100%;left: auto;right: 75.625%;transform: translateX(0);-webkit-transform: translateX(0)}
-            .index-page2-img.text1.title.show {top: 0;}
-            .index-page2-img.circleBg{position: relative;z-index: 1;}
-            .index-page2-img.icon {z-index: 3;-webkit-transform: scale(1);-moz-transform: scale(1);-ms-transform: scale(1);-o-transform: scale(1);transform: scale(1);}
-            .index-page2-img.icon.show {-webkit-transition-delay: 1.2s;-o-transition-delay: 1.2s;-moz-transition-delay: 1.2s;-ms-transition-delay: 1.2s;transition-delay: 1.2s;-webkit-animation: zoom .5s 1.2s linear;-o-animation: zoom .5s 1.2s linear;-moz-animation: zoom .5s 1.2s linear;-ms-animation: zoom .5s 1.2s linear;animation: zoom .5s 1.2s linear;-webkit-transform-origin: center;-moz-transform-origin: center;-ms-transform-origin: center;-o-transform-origin: center;transform-origin: center;}
-            .index-page2-img.icon.icon2.show{-webkit-transition-delay: 1.4s;-o-transition-delay: 1.4s;-moz-transition-delay: 1.4s;-ms-transition-delay: 1.4s;transition-delay: 1.4s;}
-            .index-page2-img.icon.iconImg.show{-webkit-transition-delay: 1.7s;-o-transition-delay: 1.7s;-moz-transition-delay: 1.7s;-ms-transition-delay: 1.7s;transition-delay: 1.7s;}
-            .index-page2-img.icon.iconInfo.show{-webkit-transition-delay: 2.2s;-o-transition-delay: 2.2s;-moz-transition-delay: 2.2s;-ms-transition-delay: 2.2s;transition-delay: 2.2s;}
-            .index-page2-img.iconImg{height:9.629630%;cursor: pointer;}
-            .index-page2-img.iconInfo{z-index: 2}
-            .index-page2-img.icon1{height:56.296296%;z-index: 2;top:19.166667%;left:46.875%; }
-            /*.index-page2-img.icon1:hover{animation:rotateAnimate 5s linear infinite;-webkit-animation:rotateAnimate 5s linear infinite;}*/
-            .index-page2-img.icon.icon2{height:22.129630%;top:37.870370%;left: 56.302083%;}
-            .index-page2-img.icon.icon22{height:36.203704%;top:29.629630%;left: 52.395833%;}
-            .index-page2-img.icon.icon31{top: 20.740741%;left:50.833333%;}
-            .index-page2-img.icon.icon32{height:17.222222%;top: 20.740741%;left:31.541666%;}
-            .index-page2-img.icon.icon41{top: 51.666667%;left: 45.15625%}
-            .index-page2-img.icon.icon42{height:17.037037%;top: 51.666667%;left: 29.822917%}
-            .index-page2-img.icon.icon51{top: 70.833333%;left: 60.104167%;}
-            .index-page2-img.icon.icon52{height:20.740741%;top: 75%;left: 54.166667%;}
-            .index-page2-img.icon.icon61{top: 51.666667%;left: 74.84375%;}
-            .index-page2-img.icon.icon62{height:20.277778%;top: 51.666667%;left: 78.29167%;}
-            .index-page2-img.icon.icon71{top: 20.740741%;left: 69.0625%;}
-            .index-page2-img.icon.icon72{height:17.222222%;top: 20.740741%;left: 73.51042%;}
-            /*@keyframes rotateAnimate {*/
-                /*0%{transform: rotate(0deg)}*/
-                /*25%{transform: rotate(-90deg)}*/
-                /*50%{transform: rotate(-180deg)}*/
-                /*75%{transform: rotate(-270deg)}*/
-                /*100%{transform: rotate(-360deg)}*/
-            /*}*/
-            /*@-webkit-keyframes rotateAnimate {*/
-                /*0%{-webkit-transform: rotate(0deg)}*/
-                /*25%{-webkit-transform: rotate(-90deg)}*/
-                /*50%{-webkit-transform: rotate(-180deg)}*/
-                /*75%{-webkit-transform: rotate(-270deg)}*/
-                /*100%{-webkit-transform: rotate(-360deg)}*/
-            /*}*/
-            .index-page3-img{top: 51%;z-index: 3;-webkit-transition-delay: .7s;-o-transition-delay: .7s;-moz-transition-delay: .7s;-ms-transition-delay: .7s;transition-delay: .7s}
-            .index-page3-img.icon1 {-webkit-transition-duration: .4s;-moz-transition-duration: .4s;-ms-transition-duration: .4s;-o-transition-duration: .4s;transition-duration: .4s;}
-            .index-page3-img.icon2 {-webkit-transition-duration: .6s;-moz-transition-duration: .6s;-ms-transition-duration: .6s;-o-transition-duration: .6s;transition-duration: .6s;}
-            .index-page3-img.icon3 {-webkit-transition-duration: .8s;-moz-transition-duration: .8s;-ms-transition-duration: .8s;-o-transition-duration: .8s;transition-duration: .8s;}
-            .index-page3-img.icon4 {-webkit-transition-duration: 1s;-moz-transition-duration: 1s;-ms-transition-duration: 1s;-o-transition-duration: 1s;transition-duration: 1s;}
-            .index-page3-img.icon5 {-webkit-transition-duration: 1.2s;-moz-transition-duration: 1.2s;-ms-transition-duration: 1.2s;-o-transition-duration: 1s;transition-duration: 1.2s;}
-            .index-page3-img.title {z-index: 2;top: 10%;-webkit-transition-delay: .7s;-o-transition-delay: .7s;-moz-transition-delay: .7s;-ms-transition-delay: .7s;transition-delay: .7s;}
-            .full-page.active .index-page3-img{opacity: 1;top: 0;}
+<meta charset="UTF-8">
+<meta name="viewport"
+	content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no">
+<meta http-equiv="content-type" content="text/html;charset=gb2312">
+<meta name="description" content="倍思教育,倍思教育科技">
+<meta name="keywords" content="倍思教育|倍思教育科技">
+<title>倍思教育科技</title>
+<link rel="stylesheet" type="text/css"
+	href="https://v3.bootcss.com/dist/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css"
+	href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.0.2/fullpage.min.css">
+<link rel="stylesheet" type="text/css"
+	href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.3.5/css/swiper.min.css" />
+<link rel="stylesheet" type="text/css" href="./css/animate.min.css">
+<link rel="stylesheet" type="text/css" href="./css/common.css?v=1">
+<style type="text/css">
+#bannerSwiper {
+	height: 100%;
+}
 
-            .icon-scale{width: auto;cursor: pointer;top:150%;}
-            .icon-scale .icon-scale-img,.icon-scale .icon-scale-info{display: block;}
-            .icon-scale .icon-scale-info>i{display: block;font-style: normal;}
-            .icon-scale .icon-scale-info{line-height: 1.76;font-size: 15px;color: #474747;margin-top: 2.625rem;}
-            .index-page2-img.iconImg img{display:block;height: 100%;width: auto;}
-            .icon-scale .icon-scale-img img{display:block;width: 100%;height: auto;}
-            .icon-scale img:first-of-type,
-            .index-page2-icon-box .index-page2-img.iconImg img{
-                transition: all linear 0.3s;
-                -webkit-transition: all linear 0.3s;
-            }
-            .icon-scale:hover img:first-of-type,
-            .index-page2-icon-box .index-page2-img.iconImg:hover img{
-                transform: scale(1.1);
-                -webkit-transform: scale(1.1);
-            }
-            .index-page3 .icon-scale{width:11.770833%;transform: translateX(0);-webkit-transform: translateX(0);}
-            .index-page3 .icon-scale.icon1{left: 20%;}
-            .index-page3 .icon-scale.icon2{left: 36.197917%;}
-            .index-page3 .icon-scale.icon3{left: 52.447917%;}
-            .index-page3 .icon-scale.icon4{left: 68.645833%;}
-            .index-page3 .icon-scale .icon-scale-info{margin-top: 0.875rem;}
-            .index-page3 .icon-scale .icon-scale-info>i{line-height:1.76;font-size: 1.05rem;color: #ffffff;}
-            .index-page3.active .icon-scale{top: 44%;}
-            .index-page4 .icon-scale{height:10.78125%;transform: translateX(0);-webkit-transform: translateX(0);}
-            .index-page4 .icon-scale .icon-scale-img{width: 75.84541%;margin-left: 12.077294%;}
-            .index-page4.active .icon-scale{top:55.555556%;}
-            .index-page4 .icon-scale.icon1{left:16.354167% ;}
-            .index-page4 .icon-scale.icon2{left:29.6875%;}
-            .index-page4 .icon-scale.icon3{left:43.229167% ;}
-            .index-page4 .icon-scale.icon4{left:56.614583%;}
-            .index-page4 .icon-scale.icon5{left:70.052083%;}
-            .footer .footer-nav a, .footer .footer-nav p:first-child {
-                display: block;
-                margin-bottom: 4px;
-            }
-            .footer .footer-links h4{margin-bottom: 4px;margin-top: 4px;}
-            .footer .footer-bottom {  padding-top: 1rem; }
-            .footer .footer-bottom p, .footer .footer-bottom a {
-                margin-bottom:4px;
-            }
-        }
-        /*@media (min-width: 1200px) {*/
-            /*.index-page3-img,index-page2-img{width: 90%;left: 5%}*/
-            /*.index-page2-icon-box{width: 86%;left:7%}*/
-        /*}*/
-    </style>
+#bannerSwiper .swiper-slide {
+	overflow: hidden;
+}
+
+#bannerSwiper .pagination {
+	position: absolute;
+	left: 0;
+	text-align: center;
+	bottom: 3.75rem;
+	width: 100%;
+	z-index: 999;
+	margin: 0;
+}
+
+#bannerSwiper .swiper-pagination-bullet {
+	display: inline-block;
+	width: 36px;
+	height: 6px;
+	opacity: 1;
+	border-radius: 0;
+	background: rgba(254, 254, 254, 0.3);
+	margin: 0 1rem;
+	cursor: pointer;
+	transition: background 0.3s ease-in-out;
+	border-radius: 3px;
+	height: 6px;
+}
+
+#bannerSwiper .swiper-pagination-bullet-active {
+	background: #fefefe;
+}
+
+#bannerSwiper .banner-bg {
+	display: block;
+	width: 100%;
+	height: auto;
+	position: relative;
+	z-index: 1;
+}
+
+#bannerSwiper .bannerInfo_container {
+	width: 100%;
+	height: 100%;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-orient: vertical;
+	-webkit-flex-direction: column;
+	-ms-flex-direction: column;
+	flex-direction: column;
+	webkit-box-align: center;
+	-webkit-align-items: center;
+	-ms-flex-align: center;
+	align-items: center;
+	-webkit-box-pack: center;
+	-webkit-justify-content: center;
+	-ms-flex-pack: center;
+	justify-content: center;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 2;
+}
+
+#bannerSwiper .bannerInfo {
+	color: #ffffff;
+	text-align: center;
+}
+
+#bannerSwiper .bannerInfo span {
+	display: block;
+}
+
+@media ( min-width : 768px) {
+	#bannerSwiper .bannerInfo {
+		font-size: 3.5rem;
+		line-height: 1.6;
+	}
+	#bannerSwiper .bannerInfo-img {
+		height: 14.537037%;
+		margin-top: 3.125rem;
+	}
+	#bannerSwiper .swiper-pagination-bullet {
+		width: 5rem;
+	}
+	.index-page2 {
+		background-color: #e5e7e8;
+	}
+	.index-page3 {
+		background-image: url(./images/index_page3_bg.png);
+	}
+	.index-page4 {
+		background-image: url(./images/index_page4_bg.png);
+	}
+	.index-page2-icon-box, .index-page2-img, .index-page3-img {
+		position: absolute;
+		left: 50%;
+		top: 0;
+		height: 100%;
+		transform: translateX(-50%)
+	}
+	.index-page2-img, .index-page3-img {
+		-webkit-transition: all .3s ease;
+		-moz-transition: all .3s ease;
+		-ms-transition: all .3s ease;
+		-o-transition: all .3s ease;
+		transition: all .3s ease;
+		opacity: 0;
+	}
+	.index-page2-img.show {
+		opacity: 1;
+	}
+	.index-page2-img.text1 {
+		top: 51%;
+		z-index: 3;
+		-webkit-transition-duration: .6s;
+		-moz-transition-duration: .6s;
+		-ms-transition-duration: .6s;
+		-o-transition-duration: .6s;
+		transition-duration: .6s;
+	}
+	.index-page2-img.text1.show {
+		top: 41%;
+		-webkit-transition-delay: .7s;
+		-o-transition-delay: .7s;
+		-moz-transition-delay: .7s;
+		-ms-transition-delay: .7s;
+		transition-delay: .7s
+	}
+	.index-page2-img.text1.title {
+		top: 10%;
+		width: auto;
+		height: 100%;
+		left: auto;
+		right: 75.625%;
+		transform: translateX(0);
+		-webkit-transform: translateX(0)
+	}
+	.index-page2-img.text1.title.show {
+		top: 0;
+	}
+	.index-page2-img.circleBg {
+		position: relative;
+		z-index: 1;
+	}
+	.index-page2-img.icon {
+		z-index: 3;
+		-webkit-transform: scale(1);
+		-moz-transform: scale(1);
+		-ms-transform: scale(1);
+		-o-transform: scale(1);
+		transform: scale(1);
+	}
+	.index-page2-img.icon.show {
+		-webkit-transition-delay: 1.2s;
+		-o-transition-delay: 1.2s;
+		-moz-transition-delay: 1.2s;
+		-ms-transition-delay: 1.2s;
+		transition-delay: 1.2s;
+		-webkit-animation: zoom .5s 1.2s linear;
+		-o-animation: zoom .5s 1.2s linear;
+		-moz-animation: zoom .5s 1.2s linear;
+		-ms-animation: zoom .5s 1.2s linear;
+		animation: zoom .5s 1.2s linear;
+		-webkit-transform-origin: center;
+		-moz-transform-origin: center;
+		-ms-transform-origin: center;
+		-o-transform-origin: center;
+		transform-origin: center;
+	}
+	.index-page2-img.icon.icon2.show {
+		-webkit-transition-delay: 1.4s;
+		-o-transition-delay: 1.4s;
+		-moz-transition-delay: 1.4s;
+		-ms-transition-delay: 1.4s;
+		transition-delay: 1.4s;
+	}
+	.index-page2-img.icon.iconImg.show {
+		-webkit-transition-delay: 1.7s;
+		-o-transition-delay: 1.7s;
+		-moz-transition-delay: 1.7s;
+		-ms-transition-delay: 1.7s;
+		transition-delay: 1.7s;
+	}
+	.index-page2-img.icon.iconInfo.show {
+		-webkit-transition-delay: 2.2s;
+		-o-transition-delay: 2.2s;
+		-moz-transition-delay: 2.2s;
+		-ms-transition-delay: 2.2s;
+		transition-delay: 2.2s;
+	}
+	.index-page2-img.iconImg {
+		height: 9.629630%;
+		cursor: pointer;
+	}
+	.index-page2-img.iconInfo {
+		z-index: 2
+	}
+	.index-page2-img.icon1 {
+		height: 56.296296%;
+		z-index: 2;
+		top: 19.166667%;
+		left: 46.875%;
+	}
+	/*.index-page2-img.icon1:hover{animation:rotateAnimate 5s linear infinite;-webkit-animation:rotateAnimate 5s linear infinite;}*/
+	.index-page2-img.icon.icon2 {
+		height: 22.129630%;
+		top: 37.870370%;
+		left: 56.302083%;
+	}
+	.index-page2-img.icon.icon22 {
+		height: 36.203704%;
+		top: 29.629630%;
+		left: 52.395833%;
+	}
+	.index-page2-img.icon.icon31 {
+		top: 20.740741%;
+		left: 50.833333%;
+	}
+	.index-page2-img.icon.icon32 {
+		height: 17.222222%;
+		top: 20.740741%;
+		left: 31.541666%;
+	}
+	.index-page2-img.icon.icon41 {
+		top: 51.666667%;
+		left: 45.15625%
+	}
+	.index-page2-img.icon.icon42 {
+		height: 17.037037%;
+		top: 51.666667%;
+		left: 29.822917%
+	}
+	.index-page2-img.icon.icon51 {
+		top: 70.833333%;
+		left: 60.104167%;
+	}
+	.index-page2-img.icon.icon52 {
+		height: 20.740741%;
+		top: 75%;
+		left: 54.166667%;
+	}
+	.index-page2-img.icon.icon61 {
+		top: 51.666667%;
+		left: 74.84375%;
+	}
+	.index-page2-img.icon.icon62 {
+		height: 20.277778%;
+		top: 51.666667%;
+		left: 78.29167%;
+	}
+	.index-page2-img.icon.icon71 {
+		top: 20.740741%;
+		left: 69.0625%;
+	}
+	.index-page2-img.icon.icon72 {
+		height: 17.222222%;
+		top: 20.740741%;
+		left: 73.51042%;
+	}
+	/*@keyframes rotateAnimate {*/
+	/*0%{transform: rotate(0deg)}*/
+	/*25%{transform: rotate(-90deg)}*/
+	/*50%{transform: rotate(-180deg)}*/
+	/*75%{transform: rotate(-270deg)}*/
+	/*100%{transform: rotate(-360deg)}*/
+	/*}*/
+	/*@-webkit-keyframes rotateAnimate {*/
+	/*0%{-webkit-transform: rotate(0deg)}*/
+	/*25%{-webkit-transform: rotate(-90deg)}*/
+	/*50%{-webkit-transform: rotate(-180deg)}*/
+	/*75%{-webkit-transform: rotate(-270deg)}*/
+	/*100%{-webkit-transform: rotate(-360deg)}*/
+	/*}*/
+	.index-page3-img {
+		top: 51%;
+		z-index: 3;
+		-webkit-transition-delay: .7s;
+		-o-transition-delay: .7s;
+		-moz-transition-delay: .7s;
+		-ms-transition-delay: .7s;
+		transition-delay: .7s
+	}
+	.index-page3-img.icon1 {
+		-webkit-transition-duration: .4s;
+		-moz-transition-duration: .4s;
+		-ms-transition-duration: .4s;
+		-o-transition-duration: .4s;
+		transition-duration: .4s;
+	}
+	.index-page3-img.icon2 {
+		-webkit-transition-duration: .6s;
+		-moz-transition-duration: .6s;
+		-ms-transition-duration: .6s;
+		-o-transition-duration: .6s;
+		transition-duration: .6s;
+	}
+	.index-page3-img.icon3 {
+		-webkit-transition-duration: .8s;
+		-moz-transition-duration: .8s;
+		-ms-transition-duration: .8s;
+		-o-transition-duration: .8s;
+		transition-duration: .8s;
+	}
+	.index-page3-img.icon4 {
+		-webkit-transition-duration: 1s;
+		-moz-transition-duration: 1s;
+		-ms-transition-duration: 1s;
+		-o-transition-duration: 1s;
+		transition-duration: 1s;
+	}
+	.index-page3-img.icon5 {
+		-webkit-transition-duration: 1.2s;
+		-moz-transition-duration: 1.2s;
+		-ms-transition-duration: 1.2s;
+		-o-transition-duration: 1s;
+		transition-duration: 1.2s;
+	}
+	.index-page3-img.title {
+		z-index: 2;
+		top: 10%;
+		-webkit-transition-delay: .7s;
+		-o-transition-delay: .7s;
+		-moz-transition-delay: .7s;
+		-ms-transition-delay: .7s;
+		transition-delay: .7s;
+	}
+	.full-page.active .index-page3-img {
+		opacity: 1;
+		top: 0;
+	}
+	.icon-scale {
+		width: auto;
+		cursor: pointer;
+		top: 150%;
+	}
+	.icon-scale .icon-scale-img, .icon-scale .icon-scale-info {
+		display: block;
+	}
+	.icon-scale .icon-scale-info>i {
+		display: block;
+		font-style: normal;
+	}
+	.icon-scale .icon-scale-info {
+		line-height: 1.76;
+		font-size: 15px;
+		color: #474747;
+		margin-top: 2.625rem;
+	}
+	.index-page2-img.iconImg img {
+		display: block;
+		height: 100%;
+		width: auto;
+	}
+	.icon-scale .icon-scale-img img {
+		display: block;
+		width: 100%;
+		height: auto;
+	}
+	.icon-scale img:first-of-type, .index-page2-icon-box .index-page2-img.iconImg img
+		{
+		transition: all linear 0.3s;
+		-webkit-transition: all linear 0.3s;
+	}
+	.icon-scale:hover img:first-of-type, .index-page2-icon-box .index-page2-img.iconImg:hover img
+		{
+		transform: scale(1.1);
+		-webkit-transform: scale(1.1);
+	}
+	.index-page3 .icon-scale {
+		width: 11.770833%;
+		transform: translateX(0);
+		-webkit-transform: translateX(0);
+	}
+	.index-page3 .icon-scale.icon1 {
+		left: 20%;
+	}
+	.index-page3 .icon-scale.icon2 {
+		left: 36.197917%;
+	}
+	.index-page3 .icon-scale.icon3 {
+		left: 52.447917%;
+	}
+	.index-page3 .icon-scale.icon4 {
+		left: 68.645833%;
+	}
+	.index-page3 .icon-scale .icon-scale-info {
+		margin-top: 0.875rem;
+	}
+	.index-page3 .icon-scale .icon-scale-info>i {
+		line-height: 1.76;
+		font-size: 1.05rem;
+		color: #ffffff;
+	}
+	.index-page3.active .icon-scale {
+		top: 44%;
+	}
+	.index-page4 .icon-scale {
+		height: 10.78125%;
+		transform: translateX(0);
+		-webkit-transform: translateX(0);
+	}
+	.index-page4 .icon-scale .icon-scale-img {
+		width: 75.84541%;
+		margin-left: 12.077294%;
+	}
+	.index-page4.active .icon-scale {
+		top: 55.555556%;
+	}
+	.index-page4 .icon-scale.icon1 {
+		left: 16.354167%;
+	}
+	.index-page4 .icon-scale.icon2 {
+		left: 29.6875%;
+	}
+	.index-page4 .icon-scale.icon3 {
+		left: 43.229167%;
+	}
+	.index-page4 .icon-scale.icon4 {
+		left: 56.614583%;
+	}
+	.index-page4 .icon-scale.icon5 {
+		left: 70.052083%;
+	}
+	.footer .footer-nav a, .footer .footer-nav p:first-child {
+		display: block;
+		margin-bottom: 4px;
+	}
+	.footer .footer-links h4 {
+		margin-bottom: 4px;
+		margin-top: 4px;
+	}
+	.footer .footer-bottom {
+		padding-top: 1rem;
+	}
+	.footer .footer-bottom p, .footer .footer-bottom a {
+		margin-bottom: 4px;
+	}
+}
+/*@media (min-width: 1200px) {*/
+/*.index-page3-img,index-page2-img{width: 90%;left: 5%}*/
+/*.index-page2-icon-box{width: 86%;left:7%}*/
+/*}*/
+</style>
 </head>
 <body>
-    <!--导航部分-->
-    <div class="navbar navbar-fixed-top green clearfix">
-        <i class="icon-menu hidden-lg hidden-md"></i>
-        <a href="index.html" class="dpb logo white"><img src="images/logo.png" alt=""></a>
-        <a href="index.html" class="dpnone logo green  hidden-xs hidden-sm"><img src="images/logo2.png" alt=""></a>
-        <div class="menu-container hidden-lg hidden-md">
-            <a href="index.html" class="dpb logo white"><img src="images/logo.png" alt=""></a>
-            <i class="icon-close"></i>
-        </div>
-        <div class="menu-con clearfix">
-            <a href="index.html" class="current pull-left home">首页</a>
-            <a href="productCenter.html" class="pull-left">产品中心</a>
-            <a href="serviceCenter.html" class="pull-left">服务中心</a>
-            <a href="researchInstitute.html" class="pull-left">研究院</a>
-            <a href="aboutUs.html" class="pull-left">关于我们</a>
-        </div>
-        <div class="menu-con-right clearfix">
-            <a href="applyAgent.html" class="pull-left">申请代理</a>
-            <a href="applyAgentTry.html" class="pull-left">申请试用</a>
-        </div>
-    </div>
-    <!--导航部分-->
-    <!--内容部分-->
-    <section class="main-container">
-        <div id="fullPage">
-            <div class="section full-page green">
-                <div class="swiper-container" id="bannerSwiper">
-                    <div class="swiper-wrapper">
-                        <div class="swiper-slide green">
-                            <img src="./images/index_page1_bg.png" alt="" class="banner-bg">
-                            <div class="bannerInfo_container">
-                                <p class="ani bannerInfo" swiper-animate-effect="lightSpeedIn" swiper-animate-duration="0.5s">
-                                    <span>全流程智慧教学管理</span>
-                                </p>
-                                <img src="./images/index_page1_icon1.png" alt="" class="ani bannerInfo-img" swiper-animate-effect="zoomIn" swiper-animate-duration="0.5s" swiper-animate-delay="0.3s">
-                            </div>
-                        </div>
-                        <!--<div class="swiper-slide">-->
-                            <!--<img src="./images/index_page4_bg.png" alt="">-->
-                        <!--</div>-->
-                    </div>
-                    <div id="bannerpagination" class="pagination dpnone"></div>
-                </div>
-            </div>
-            <div class="section full-page index-page4">
-                <p class="index-page3-img icon1 icon-scale text-center">
-                    <span class="icon-scale-img">
-                        <img src="images/index_page4_icon1.png" alt="">
-                    </span>
-                    <span class="icon-scale-info">
-                        <i>全流程管理</i>
-                        <i>产品价值惠及</i>
-                        <i>学校、教师、家长和学生</i>
-                    </span>
-                </p>
-                <p class="index-page3-img icon2 icon-scale text-center">
-                    <span class="icon-scale-img">
-                        <img src="images/index_page4_icon2.png" alt="">
-                    </span>
-                    <span class="icon-scale-info">
-                        <i>融通中外教育资源</i>
-                        <i>研发团队行业唯一</i>
-                    </span>
-                </p>
-                <p class="index-page3-img icon3 icon-scale text-center">
-                    <span class="icon-scale-img">
-                        <img src="images/index_page4_icon3.png" alt="">
-                    </span>
-                    <span class="icon-scale-info">
-                        <i>以技术引领教育革命</i>
-                    </span>
-                </p>
-                <p class="index-page3-img icon4 icon-scale text-center">
-                    <span class="icon-scale-img">
-                        <img src="images/index_page4_icon4.png" alt="">
-                    </span>
-                    <span class="icon-scale-info">
-                        <i>国内外教育专家团队</i>
-                        <i>“教育+互联网”</i>
-                    </span>
-                </p>
-                <p class="index-page3-img icon5 icon-scale text-center">
-                    <span class="icon-scale-img">
-                        <img src="images/index_page4_icon5.png" alt="">
-                    </span>
-                    <span class="icon-scale-info">
-                        <i>全国营销服务体系</i>
-                        <i>立足深圳，辐射全国</i>
-                    </span>
-                </p>
-                <img src="images/index_page4_title.png" alt="" class="index-page3-img title">
-            </div>
-            <div class="section full-page index-page2">
-                <div class="index-page2-icon-box">
-                    <img src="images/index_page2_bg.png" alt="" class="index-page2-img circleBg">
-                    <img src="images/index_page2_icon1.png" alt="" class="index-page2-img icon icon1">
-                    <div class="index-page2-img iconImg icon icon31">
-                        <img src="images/index_page2_icon31.png"  alt=""/>
-                    </div>
-                    <img src="images/index_page2_icon32.png" class="index-page2-img icon iconInfo icon32" alt=""/>
-                    <div class="index-page2-img iconImg icon icon41">
-                        <img src="images/index_page2_icon41.png" alt=""/>
-                    </div>
-                    <img src="images/index_page2_icon42.png" class="index-page2-img icon iconInfo icon42" alt=""/>
-                    <div class="index-page2-img iconImg icon icon51">
-                        <img src="images/index_page2_icon51.png" alt=""/>
-                    </div>
-                    <img src="images/index_page2_icon52.png" class="index-page2-img icon iconInfo icon52" alt=""/>
-                    <div class="index-page2-img iconImg icon icon61">
-                        <img src="images/index_page2_icon61.png" alt=""/>
-                    </div>
-                    <img src="images/index_page2_icon62.png" class="index-page2-img icon iconInfo icon62" alt=""/>
-                    <div class="index-page2-img iconImg icon icon71">
-                        <img src="images/index_page2_icon71.png" alt=""/>
-                    </div>
-                    <img src="images/index_page2_icon72.png" class="index-page2-img icon iconInfo icon72" alt=""/>
-                    <img src="images/index_page2_icon22.png" alt="" class="index-page2-img icon icon22">
-                    <img src="images/index_page2_icon2.png" alt="" class="index-page2-img icon icon2">
-                </div>
-                <img src="images/index_page2_text1.png" class="index-page2-img text1 title" alt="">
-            </div>
-            <div class="section full-page index-page3 green">
-                <p class="index-page3-img icon1 icon-scale text-center">
-                    <span class="icon-scale-img">
-                        <img src="images/index_page3_icon1.png" alt="">
-                    </span>
-                    <span class="icon-scale-info">
-                        <i>国内外名校师资专家团队</i>
-                        <i>行业顶尖技术团队</i>
-                        <i>优质售后团队</i>
-                    </span>
-                </p>
-                <p class="index-page3-img icon2 icon-scale text-center">
-                    <span class="icon-scale-img">
-                        <img src="images/index_page3_icon2.png" alt="">
-                    </span>
-                    <span class="icon-scale-info">
-                        <i>售前>实施>售后</i>
-                        <i>全生命周期服务</i>
-                    </span>
-                </p>
-                <p class="index-page3-img icon3 icon-scale text-center">
-                    <span class="icon-scale-img">
-                        <img src="images/index_page3_icon3.png" alt="">
-                    </span>
-                    <span class="icon-scale-info">
-                        <i>专业、高效、创新</i>
-                        <i>规范、诚信、用心</i>
-                    </span>
-                </p>
-                <p class="index-page3-img icon4 icon-scale text-center">
-                    <span class="icon-scale-img">
-                        <img src="images/index_page3_icon4.png" alt="">
-                    </span>
-                    <span class="icon-scale-info">
-                        <i>确保客户从接洽到使用</i>
-                        <i>0担忧的服务体验</i>
-                    </span>
-                </p>
-                <img src="images/index_page3_title.png" alt="" class="index-page3-img title">
-            </div>
-            <div class="section footer green">
-                <div class="hidden-xs hidden-sm" style="background-color: #2c2d2d">
-                    <div class="container" style="padding-top: 7rem; padding-bottom: .2rem;border-bottom: 1px solid #808080;">
-                        <div class="hidden-xs hidden-sm footer-nav" style="padding:0;border-bottom:none; display: flex;justify-content: space-between;">
-                            <div>
-                                <h4>首页</h4>
-                                <ul class="list-unstyled">
-                                    <li><a href="index.html#1">智慧教学</a></li>
-                                    <li><a href="index.html#2">公司简介</a></li>
-                                    <li><a href="index.html#3">平台功能</a></li>
-                                    <li><a href="index.html#4">服务体系 </a></li>
-                                </ul>
-                            </div>
-                            <div>
-                                <h4>产品中心</h4>
-                                <ul class="list-unstyled">
-                                    <li><a href="productCenter.html#1">平台介绍</a></li>
-                                    <!--<li><a href="productCenter.html#2">全流程管理</a></li>-->
-                                    <li><a href="productCenter.html#3">产品价值</a></li>
-                                    <li><a href="productCenter.html#4">新高考选排课</a></li>
-                                    <li><a href="productCenter.html#5">移动端简介</a></li>
-                                </ul>
-                            </div>
-                            <div>
-                                <h4>服务中心</h4>
-                                <ul class="list-unstyled">
-                                    <li><a href="serviceCenter.html#1">服务体系</a></li>
-                                    <li><a href="serviceCenter.html#2">服务流程</a></li>
-                                    <li><a href="serviceCenter.html#3">专业团队</a></li>
-                                </ul>
-                            </div>
-                            <div>
-                                <h4>研究院</h4>
-                                <ul class="list-unstyled">
-                                    <li><a href="researchInstitute.html">教育政策研究</a></li>
-                                    <li><a href="researchInstitute.html">教育热点研究</a></li>
-                                    <li><a href="researchInstitute.html">教育科技产品研究</a></li>
-                                    <li><a href="researchInstitute.html">教育产品应用研究</a></li>
-                                </ul>
-                            </div>
-                            <div>
-                                <h4>关于我们</h4>
-                                <ul class="list-unstyled">
-                                    <li><a href="aboutUs.html#1">公司介绍</a></li>
-                                    <li><a href="aboutUs.html#1">企业文化</a></li>
-                                    <li><a href="aboutUs.html#2">合作伙伴</a></li>
-                                    <li><a href="aboutUs.html#3">联系我们</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="footer-top" style="background-color: #2c2d2d;">
-                    <div class="container" style="padding: 0.4rem 0;">
-                        <div class="row RQcodeContainer">
-                            <div class="col-md-3 contactInfo">
-                                <p>服务热线：<a href="tel:4009263008">400-926-3008</a></p>
-                                <p>公司邮箱：<a href="mailto:base@51basejy.com">base@51basejy.com</a></p>
-                            </div>
-                            <div class="col-md-3">
-                                <div class="RQcodeImg">
-                                    <img src="./images/baseWechatApp.png" alt="">
-                                </div>
-                                <p class="RQcodeInfo">
-                                    <span>扫码关注：</span>
-                                    <span>倍思教育科技小程序</span>
-                                </p>
-                            </div>
-                            <div class="col-md-3">
-                                <div class="RQcodeImg">
-                                    <img src="./images/baseWechatService.png" alt="">
-                                </div>
-                                <p class="RQcodeInfo">
-                                    <span>扫码关注：</span>
-                                    <span>倍思教育科技服务号</span>
-                                </p>
-                            </div>
-                            <div class="col-md-3">
-                                <div class="RQcodeImg">
-                                    <img src="./images/baseWechatPublic.png" alt="">
-                                </div>
-                                <p class="RQcodeInfo">
-                                    <span>扫码关注：</span>
-                                    <span>倍思教育科技订阅号</span>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="container"  >
-                    <div class="footer-links">
-                        <h4>合作链接</h4>
-                        <div class="links">
-                            <!--<a href="http://www.51basejy.com/">腾讯大学</a>-->
-                            <!--<a href="http://www.51basejy.com/">腾讯网教育频道</a>-->
-                            <!--<a href="http://www.51basejy.com/">腾讯精品课</a>-->
-                            <!--<a href="http://www.51basejy.com/">腾讯御安全</a>-->
-                            <!--<a href="http://www.51basejy.com/">企鹅FM</a>-->
-                            <!--<a href="http://www.51basejy.com/">腾讯微云</a>-->
-                            <!--<a href="http://www.51basejy.com/">腾讯文档</a>-->
-                            <!--<a href="http://www.51basejy.com/">腾讯游戏学院</a>-->
-                            <!--<a href="http://www.51basejy.com/">环球网校</a>-->
-                            <!--<a href="http://www.51basejy.com/">中华考试网</a>-->
-                            <!--<a href="http://www.51basejy.com/">学神IT教育</a>-->
-                            <!--<a href="http://www.51basejy.com/">云中帆教育</a>-->
-                            <!--<a href="http://www.51basejy.com/">为课网校</a>-->
-                            <!--<a href="http://www.51basejy.com/">中大网校</a>-->
-                            <!--<a href="http://www.51basejy.com/">益修学院</a>-->
-                            <!--<a href="http://www.51basejy.com/">起点学院</a>-->
-                            <!--<a href="http://www.51basejy.com/">人人都是产品经理</a>-->
-                            <!--<a href="http://www.51basejy.com/">公务员考试网</a>-->
-                            <!--<a href="http://www.51basejy.com/">新东方在线</a>-->
-                            <a href="http://www.moe.gov.cn/">中华人民共和国教育部</a>
-                            <a href="http://www.cse.edu.cn/">中国教育学会</a>
-                            <a href="http://www.chinaedu.edu.cn/">中国教育信息网</a>
-                            <a href="http://www.jyb.cn/">中国教育新闻网</a>
-                            <a href="http://www.bnu.edu.cn/">北京师范大学</a>
-                            <a href="https://www.ecnu.edu.cn/">华东师范大学</a>
-                            <a href="http://www.naea.edu.cn/">国家教育行政学院</a>
-                            <a href="http://www.enaea.edu.cn/">中国教育干部网络学院</a>
-                            <a href="http://www.ttfs-edu.com/">深圳市誉天智骏教育科技有限公司</a>
-                        </div>
-                    </div>
-                    <hr style="border-top: 1px solid #808080; margin-bottom: 0; margin-top: 4px;" />
-                    <div class="footer-bottom">
-                        <img src="./images/logo_single.png" alt="" style="margin-bottom: .4rem;">
-                        <p class="text-center hidden-xs hidden-sm">Copyright © 2018 Base education. All Rights Reserved</p>
-                        <p class="row address text-center hidden">
-                            <span>公司地址：深圳市福田区福华一路98号卓越大厦409室</span>
-                            <span>热线电话：<a href="tel:4009263008">400-926-3008</a></span>
-                        </p>
-                        <p class="copyright text-center">
-                            <span>深圳市倍思教育科技有限公司 版权所有 </span>
-                            <span style="margin-left: 0.5rem;"><a href="http://www.miitbeian.gov.cn" target="_blank">粤ICP备18074306号</a></span>
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!--内容部分-->
-    <!--浮动按钮-->
-    <div class="posBtnList">
-        <div class="posBtnItem">
-            <a href="javascript:void(0)" class="dpb icon-top">
-                <img src="./images/icon_top.png" alt="">
-            </a>
-        </div>
-        <div class="posBtnItem">
-            <a href="javascript:void(0)" class="dpb"  data-toggle="modal" data-target=".wechatModal">
-                <img src="./images/icon_share_wechat.png" alt="">
-            </a>
-        </div>
-        <div class="posBtnItem">
-            <a href="javascript:void(0)"  class="dpb"  data-toggle="modal" data-target=".QQModal">
-                <img src="./images/icon_share_QQ.png" alt="">
-            </a>
-        </div>
-        <!--<div class="bdsharebuttonbox">-->
-        <!--<a href="#" class="bds_more dpnone" data-cmd="more"></a>-->
-        <!--<a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信">-->
-        <!--&lt;!&ndash;<img src="./images/icon_share_wechat.png" alt="">&ndash;&gt;-->
-        <!--</a>-->
-        <!--<a href="#" class="bds_sqq" data-cmd="sqq" title="分享到QQ好友">-->
-        <!--&lt;!&ndash;<img src="./images/icon_share_QQ.png" alt="">&ndash;&gt;-->
-        <!--</a>-->
-        <!--</div>-->
-        <div class="posBtnItem">
-            <a href="tel:4009263008" class="dpb">
-                <img src="./images/icon_tel.png" alt="">
-            </a>
-        </div>
-    </div>
-    <!--浮动按钮-->
-    <!--微信信息-->
-    <div class="modal fade wechatModal" tabindex="-1" role="dialog" aria-labelledby="wechat" style="display: none;">
-        <div class="modal-dialog modal-lg" role="document">
-            <div class="modal-content">
-                <div class="closeBtn">
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
-                        <img src="images/m_close.png" class="hidden-md hidden-lg">
-                        <img src="images/close.png" class="hidden-xs hidden-sm">
-                    </button>
-                </div>
-                <div class="modal-body row RQcodeContainer">
-                    <div class="col-md-4">
-                        <div class="RQcodeImg">
-                            <img src="./images/baseWechatApp.png" alt="">
-                        </div>
-                        <p class="RQcodeInfo">
-                            <span>扫码关注：</span>
-                            <span>倍思教育科技小程序</span>
-                        </p>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="RQcodeImg">
-                            <img src="./images/baseWechatService.png" alt="">
-                        </div>
-                        <p class="RQcodeInfo">
-                            <span>扫码关注：</span>
-                            <span>倍思教育科技服务号</span>
-                        </p>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="RQcodeImg">
-                            <img src="./images/baseWechatPublic.png" alt="">
-                        </div>
-                        <p class="RQcodeInfo">
-                            <span>扫码关注：</span>
-                            <span>倍思教育科技订阅号</span>
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!--微信信息-->
-    <!--QQ信息-->
-    <div class="modal fade QQModal" tabindex="-1" role="dialog" aria-labelledby="QQ" style="display: none;">
-        <div class="modal-dialog modal-sm" role="document">
-            <div class="modal-content">
-                <div class="closeBtn">
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
-                        <img src="images/m_close.png" class="hidden-md hidden-lg">
-                        <img src="images/close.png" class="hidden-xs hidden-sm">
-                    </button>
-                </div>
-                <div class="modal-body row RQcodeContainer">
-                    <a class="callQQ" href="tencent://Message/?Uin=365098380&amp;websiteName=q-zone.qq.com&amp;Menu=yes">
-                        <span>咨询QQ客服：</span>
-                        <span>365098380</span>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!--QQ信息-->
+	<!--导航部分-->
+	<div class="navbar navbar-fixed-top green clearfix">
+		<i class="icon-menu hidden-lg hidden-md"></i> 
+		<a href="index.html" class="dpb logo white">
+			<img src="images/logo.png" alt="">
+		</a> 
+		<a href="index.html" class="dpnone logo green  hidden-xs hidden-sm">
+			<img src="images/logo2.png" alt="">
+		</a>
+		<div class="menu-container hidden-lg hidden-md">
+			<a href="index.html" class="dpb logo white">
+				<img src="images/logo.png" alt="">
+			</a> 
+			<i class="icon-close"></i>
+		</div>
+		<div class="menu-con clearfix">
+			<a href="index.html" class="current pull-left home">首页</a> 
+			<a href="productCenter.html" class="pull-left">产品中心</a> 
+			<a href="serviceCenter.html" class="pull-left">服务中心</a> 
+			<a href="researchInstitute.html" class="pull-left">研究院</a> 
+			<a href="aboutUs.html" class="pull-left">关于我们</a>
+		</div>
+		<div class="menu-con-right clearfix">
+			<a href="applyAgent.html" class="pull-left">申请代理</a> 
+			<a href="applyAgentTry.html" class="pull-left">申请试用</a>
+		</div>
+	</div>
+	<!--导航部分-->
+	<!--内容部分-->
+	<section class="main-container">
+		<div id="fullPage">
+			<div class="section full-page green">
+				<div class="swiper-container" id="bannerSwiper">
+					<div class="swiper-wrapper">
+						<div class="swiper-slide green">
+							<img src="./images/index_page1_bg.png" alt="" class="banner-bg">
+							<div class="bannerInfo_container">
+								<p class="ani bannerInfo" swiper-animate-effect="lightSpeedIn"
+									swiper-animate-duration="0.5s">
+									<span>全流程智慧教学管理</span>
+								</p>
+								<img src="./images/index_page1_icon1.png" alt=""
+									class="ani bannerInfo-img" swiper-animate-effect="zoomIn"
+									swiper-animate-duration="0.5s" swiper-animate-delay="0.3s">
+							</div>
+						</div>
+						<!--<div class="swiper-slide">-->
+						<!--<img src="./images/index_page4_bg.png" alt="">-->
+						<!--</div>-->
+					</div>
+					<div id="bannerpagination" class="pagination dpnone"></div>
+				</div>
+			</div>
+			<div class="section full-page index-page4">
+				<p class="index-page3-img icon1 icon-scale text-center">
+					<span class="icon-scale-img"> <img
+						src="images/index_page4_icon1.png" alt="">
+					</span> <span class="icon-scale-info"> <i>全流程管理</i> <i>产品价值惠及</i> <i>学校、教师、家长和学生</i>
+					</span>
+				</p>
+				<p class="index-page3-img icon2 icon-scale text-center">
+					<span class="icon-scale-img"> <img
+						src="images/index_page4_icon2.png" alt="">
+					</span> <span class="icon-scale-info"> <i>融通中外教育资源</i> <i>研发团队行业唯一</i>
+					</span>
+				</p>
+				<p class="index-page3-img icon3 icon-scale text-center">
+					<span class="icon-scale-img"> <img
+						src="images/index_page4_icon3.png" alt="">
+					</span> <span class="icon-scale-info"> <i>以技术引领教育革命</i>
+					</span>
+				</p>
+				<p class="index-page3-img icon4 icon-scale text-center">
+					<span class="icon-scale-img"> <img
+						src="images/index_page4_icon4.png" alt="">
+					</span> <span class="icon-scale-info"> <i>国内外教育专家团队</i> <i>“教育+互联网”</i>
+					</span>
+				</p>
+				<p class="index-page3-img icon5 icon-scale text-center">
+					<span class="icon-scale-img"> <img
+						src="images/index_page4_icon5.png" alt="">
+					</span> <span class="icon-scale-info"> <i>全国营销服务体系</i> <i>立足深圳，辐射全国</i>
+					</span>
+				</p>
+				<img src="images/index_page4_title.png" alt=""
+					class="index-page3-img title">
+			</div>
+			<div class="section full-page index-page2">
+				<div class="index-page2-icon-box">
+					<img src="images/index_page2_bg.png" alt=""
+						class="index-page2-img circleBg"> <img
+						src="images/index_page2_icon1.png" alt=""
+						class="index-page2-img icon icon1">
+					<div class="index-page2-img iconImg icon icon31">
+						<img src="images/index_page2_icon31.png" alt="" />
+					</div>
+					<img src="images/index_page2_icon32.png"
+						class="index-page2-img icon iconInfo icon32" alt="" />
+					<div class="index-page2-img iconImg icon icon41">
+						<img src="images/index_page2_icon41.png" alt="" />
+					</div>
+					<img src="images/index_page2_icon42.png"
+						class="index-page2-img icon iconInfo icon42" alt="" />
+					<div class="index-page2-img iconImg icon icon51">
+						<img src="images/index_page2_icon51.png" alt="" />
+					</div>
+					<img src="images/index_page2_icon52.png"
+						class="index-page2-img icon iconInfo icon52" alt="" />
+					<div class="index-page2-img iconImg icon icon61">
+						<img src="images/index_page2_icon61.png" alt="" />
+					</div>
+					<img src="images/index_page2_icon62.png"
+						class="index-page2-img icon iconInfo icon62" alt="" />
+					<div class="index-page2-img iconImg icon icon71">
+						<img src="images/index_page2_icon71.png" alt="" />
+					</div>
+					<img src="images/index_page2_icon72.png"
+						class="index-page2-img icon iconInfo icon72" alt="" /> <img
+						src="images/index_page2_icon22.png" alt=""
+						class="index-page2-img icon icon22"> <img
+						src="images/index_page2_icon2.png" alt=""
+						class="index-page2-img icon icon2">
+				</div>
+				<img src="images/index_page2_text1.png"
+					class="index-page2-img text1 title" alt="">
+			</div>
+			<div class="section full-page index-page3 green">
+				<p class="index-page3-img icon1 icon-scale text-center">
+					<span class="icon-scale-img"> <img
+						src="images/index_page3_icon1.png" alt="">
+					</span> <span class="icon-scale-info"> <i>国内外名校师资专家团队</i> <i>行业顶尖技术团队</i>
+						<i>优质售后团队</i>
+					</span>
+				</p>
+				<p class="index-page3-img icon2 icon-scale text-center">
+					<span class="icon-scale-img"> <img
+						src="images/index_page3_icon2.png" alt="">
+					</span> <span class="icon-scale-info"> <i>售前>实施>售后</i> <i>全生命周期服务</i>
+					</span>
+				</p>
+				<p class="index-page3-img icon3 icon-scale text-center">
+					<span class="icon-scale-img"> <img
+						src="images/index_page3_icon3.png" alt="">
+					</span> <span class="icon-scale-info"> <i>专业、高效、创新</i> <i>规范、诚信、用心</i>
+					</span>
+				</p>
+				<p class="index-page3-img icon4 icon-scale text-center">
+					<span class="icon-scale-img"> <img
+						src="images/index_page3_icon4.png" alt="">
+					</span> <span class="icon-scale-info"> <i>确保客户从接洽到使用</i> <i>0担忧的服务体验</i>
+					</span>
+				</p>
+				<img src="images/index_page3_title.png" alt=""
+					class="index-page3-img title">
+			</div>
+			<div class="section footer green">
+				<div class="hidden-xs hidden-sm" style="background-color: #2c2d2d">
+					<div class="container">
+						<div class="hidden-xs hidden-sm footer-nav"
+							style="padding: 0; border-bottom: none; display: flex; padding-top:10rem; padding-bottom:1.5rem;justify-content: space-between; border-bottom: 1px solid #808080;">
+							<div>
+								<h4>首页</h4>
+								<ul class="list-unstyled">
+									<li><a href="index.html#1">智慧教学</a></li>
+									<li><a href="index.html#2">公司简介</a></li>
+									<li><a href="index.html#3">平台功能</a></li>
+									<li><a href="index.html#4">服务体系 </a></li>
+								</ul>
+							</div>
+							<div>
+								<h4>产品中心</h4>
+								<ul class="list-unstyled">
+									<li><a href="productCenter.html#1">平台介绍</a></li>
+									<li><a href="productCenter.html#3">产品价值</a></li>
+									<li><a href="productCenter.html#4">新高考选排课</a></li>
+									<li><a href="productCenter.html#5">移动端简介</a></li>
+								</ul>
+							</div>
+							<div>
+								<h4>服务中心</h4>
+								<ul class="list-unstyled">
+									<li><a href="serviceCenter.html#1">服务体系</a></li>
+									<li><a href="serviceCenter.html#2">服务流程</a></li>
+									<li><a href="serviceCenter.html#3">专业团队</a></li>
+								</ul>
+							</div>
+							<div>
+								<h4>研究院</h4>
+								<ul class="list-unstyled">
+									<li><a href="researchInstitute.html">教育政策研究</a></li>
+									<li><a href="researchInstitute.html">教育热点研究</a></li>
+									<li><a href="researchInstitute.html">教育科技产品研究</a></li>
+									<li><a href="researchInstitute.html">教育产品应用研究</a></li>
+								</ul>
+							</div>
+							<div>
+								<h4>关于我们</h4>
+								<ul class="list-unstyled">
+									<li><a href="aboutUs.html#1">公司介绍</a></li>
+									<li><a href="aboutUs.html#1">企业文化</a></li>
+									<li><a href="aboutUs.html#2">合作伙伴</a></li>
+									<li><a href="aboutUs.html#3">联系我们</a></li>
+								</ul>
+							</div>
+						</div>
+						<div class="links" style="padding-top:1rem; padding-bottom:1rem; border-bottom: 1px solid #808080;">
+							<a href="http://www.moe.gov.cn/" class="friend-link-item" target="_blank" >中华人民共和国教育部</a> 
+							<a href="http://www.cse.edu.cn/" target="_blank" class="friend-link-item">中国教育学会</a> 
+							<a href="http://www.chinaedu.edu.cn/" target="_blank" class="friend-link-item">中国教育信息网</a> 
+							<a href="http://www.jyb.cn/" target="_blank" class="friend-link-item">中国教育新闻网</a> 
+							<a href="http://www.bnu.edu.cn/" target="_blank" class="friend-link-item">北京师范大学</a> 
+							<a href="https://www.ecnu.edu.cn/" target="_blank" class="friend-link-item">华东师范大学</a> 
+							<a href="http://www.naea.edu.cn/" target="_blank" class="friend-link-item">国家教育行政学院</a> 
+							<a href="http://www.enaea.edu.cn/" target="_blank" class="friend-link-item">中国教育干部网络学院</a> 
+							<a href="http://www.ttfs-edu.com/" target="_blank" class="friend-link-item">深圳市誉天智骏教育科技有限公司</a>
+						</div>
+					</div>
+				</div>
+				<div class="footer-top" style="background-color: #2c2d2d;">
+					<div class="container" style="padding: 15px 0;">
+						<div class="row RQcodeContainer">
+							<div class="col-md-3 contactInfo" style="padding: 6px 0;">
+								<p>
+									服务热线：<a href="tel:4009263008">400-926-3008</a>
+								</p>
+								<p>
+									公司邮箱：<a href="mailto:base@51basejy.com">base@51basejy.com</a>
+								</p>
+							</div>
+							<div class="col-md-3">
+								<div class="RQcodeImg">
+									<img src="./images/baseWechatApp.png" alt="">
+								</div>
+								<p class="RQcodeInfo">
+									<span>扫码关注：</span> <span>倍思教育科技小程序</span>
+								</p>
+							</div>
+							<div class="col-md-3">
+								<div class="RQcodeImg">
+									<img src="./images/baseWechatService.png" alt="">
+								</div>
+								<p class="RQcodeInfo">
+									<span>扫码关注：</span> <span>倍思教育科技服务号</span>
+								</p>
+							</div>
+							<div class="col-md-3">
+								<div class="RQcodeImg">
+									<img src="./images/baseWechatPublic.png" alt="">
+								</div>
+								<p class="RQcodeInfo">
+									<span>扫码关注：</span> <span>倍思教育科技订阅号</span>
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="container" style="padding: 25px 0;">
+					<div class="footer-bottom" >
+						<p class="text-center hidden-xs hidden-sm">
+							Copyright © 2018 Base education. All Rights Reserved</p>
+						<p class="row address text-center hidden">
+							<span>公司地址：深圳市福田区福华一路98号卓越大厦409室</span> 
+							<span>热线电话：<a href="tel:4009263008">400-926-3008</a>
+							</span>
+						</p>
+						<p class="copyright text-center">
+							<span>深圳市倍思教育科技有限公司 版权所有 </span> 
+							<span style="margin-left: 0.5rem;">
+								<a href="http://www.miitbeian.gov.cn" target="_blank">粤ICP备18074306号</a>
+							</span>
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!--内容部分-->
+	<!--浮动按钮-->
+	<div class="posBtnList">
+		<div class="posBtnItem">
+			<a href="javascript:void(0)" class="dpb icon-top"> <img
+				src="./images/icon_top.png" alt="">
+			</a>
+		</div>
+		<div class="posBtnItem">
+			<a href="javascript:void(0)" class="dpb" data-toggle="modal"
+				data-target=".wechatModal"> <img
+				src="./images/icon_share_wechat.png" alt="">
+			</a>
+		</div>
+		<div class="posBtnItem">
+			<a href="javascript:void(0)" class="dpb" data-toggle="modal"
+				data-target=".QQModal"> <img src="./images/icon_share_QQ.png"
+				alt="">
+			</a>
+		</div>
+		<!--<div class="bdsharebuttonbox">-->
+		<!--<a href="#" class="bds_more dpnone" data-cmd="more"></a>-->
+		<!--<a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信">-->
+		<!--&lt;!&ndash;<img src="./images/icon_share_wechat.png" alt="">&ndash;&gt;-->
+		<!--</a>-->
+		<!--<a href="#" class="bds_sqq" data-cmd="sqq" title="分享到QQ好友">-->
+		<!--&lt;!&ndash;<img src="./images/icon_share_QQ.png" alt="">&ndash;&gt;-->
+		<!--</a>-->
+		<!--</div>-->
+		<div class="posBtnItem">
+			<a href="tel:4009263008" class="dpb"> <img
+				src="./images/icon_tel.png" alt="">
+			</a>
+		</div>
+	</div>
+	<!--浮动按钮-->
+	<!--微信信息-->
+	<div class="modal fade wechatModal" tabindex="-1" role="dialog"
+		aria-labelledby="wechat" style="display: none;">
+		<div class="modal-dialog modal-lg" role="document">
+			<div class="modal-content">
+				<div class="closeBtn">
+					<button type="button" class="close" data-dismiss="modal"
+						aria-hidden="true">
+						<img src="images/m_close.png" class="hidden-md hidden-lg"> <img
+							src="images/close.png" class="hidden-xs hidden-sm">
+					</button>
+				</div>
+				<div class="modal-body row RQcodeContainer">
+					<div class="col-md-4">
+						<div class="RQcodeImg">
+							<img src="./images/baseWechatApp.png" alt="">
+						</div>
+						<p class="RQcodeInfo">
+							<span>扫码关注：</span> <span>倍思教育科技小程序</span>
+						</p>
+					</div>
+					<div class="col-md-4">
+						<div class="RQcodeImg">
+							<img src="./images/baseWechatService.png" alt="">
+						</div>
+						<p class="RQcodeInfo">
+							<span>扫码关注：</span> <span>倍思教育科技服务号</span>
+						</p>
+					</div>
+					<div class="col-md-4">
+						<div class="RQcodeImg">
+							<img src="./images/baseWechatPublic.png" alt="">
+						</div>
+						<p class="RQcodeInfo">
+							<span>扫码关注：</span> <span>倍思教育科技订阅号</span>
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--微信信息-->
+	<!--QQ信息-->
+	<div class="modal fade QQModal" tabindex="-1" role="dialog"
+		aria-labelledby="QQ" style="display: none;">
+		<div class="modal-dialog modal-sm" role="document">
+			<div class="modal-content">
+				<div class="closeBtn">
+					<button type="button" class="close" data-dismiss="modal"
+						aria-hidden="true">
+						<img src="images/m_close.png" class="hidden-md hidden-lg"> <img
+							src="images/close.png" class="hidden-xs hidden-sm">
+					</button>
+				</div>
+				<div class="modal-body row RQcodeContainer">
+					<a class="callQQ"
+						href="tencent://Message/?Uin=365098380&amp;websiteName=q-zone.qq.com&amp;Menu=yes">
+						<span>咨询QQ客服：</span> <span>365098380</span>
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--QQ信息-->
 </body>
 <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
-<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.0.2/fullpage.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.3.5/js/swiper.min.js"></script>
+<script
+	src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.0.2/fullpage.min.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.3.5/js/swiper.min.js"></script>
 <script src="./js/swiper.animate.min.js"></script>
 <script src="./js/common.js"></script>
-<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
 <script>
-    var mySwiper=null;
-    $('#fullPage').fullpage({
-        scrollingSpeed: 500,
-        verticalCentered: false,
-        navigation: true,
-        navigationPosition: 'left',
-        afterLoad: function(origin, destination, direction){
-            if (destination.index != 2) {
-                $(".index-page2-img").removeClass('show');
-            }
-            if(!mySwiper&&destination.index===0){
-                var url=localStorage.server_ip+'cgi/api/banner?limit=1',
-                params=null;
-                ajaxCall(url,params,getBannerCallback);
-            }
-        },
-        onLeave: function(origin, destination, direction){
-            switch(destination.index){
-                case 2:
-                    $(".index-page2-img").addClass("show");
-                    break;
-            }
-            if ($("#fullPage .section").eq(destination.index).hasClass("green")) {
-                $(".navbar.navbar-fixed-top").addClass("green")
-                    .find(".logo.white").show().siblings('.logo.green').hide();
-                $('#fp-nav.fp-left').removeClass('green');
-            } else {
-                $('#fp-nav.fp-left').addClass('green');
-                $(".navbar.navbar-fixed-top").removeClass("green")
-                    .find(".logo.white").hide().siblings('.logo.green').show();
-            }
-        }
-    });
-    var pageIndex=location.hash.substr(1);
-    if(pageIndex&&!isNaN(pageIndex)){
-        $.fn.fullpage.moveTo(pageIndex);
-    }
-    $(".posBtnList .icon-top").click(function(){
-        $.fn.fullpage.moveTo(1);
-    });
-    /*获取banner回调函数*/
-    function getBannerCallback(resultData) {
-        if(resultData.err!==0) return;
-        var data=resultData.data;
-        var imgFlag=getPlatformFlag()?'img_pc':'img_wap';
-        var swiperSlideHTML='';
-        for(var i=0,len=data.length;i<len;i++){
-            swiperSlideHTML+='<div class="swiper-slide green">'
-                    +'<img src="'+(localStorage.server_ip+data[i][imgFlag])+'" alt="" class="banner-bg">'
-                    +'<div class="bannerInfo_container">'
-                        +'<p class="ani bannerInfo" swiper-animate-effect="lightSpeedIn" swiper-animate-duration="0.5s">'
-                            +'<span>'+data[i].title+'</span>'
-                        +'</p>'
-                        +'<img src="./images/index_page1_icon1.png" alt="" class="ani bannerInfo-img" swiper-animate-effect="zoomIn" swiper-animate-duration="0.5s" swiper-animate-delay="0.3s">'
-                    +'</div>'
-                +'</div>'
-        }
-        $('#bannerSwiper .swiper-wrapper').html(swiperSlideHTML);
-        mySwiper = new Swiper('#bannerSwiper',{
-            // loop: true,
-            speed:600,
-            grabCursor : true,
-            parallax:true,
-            allowSlideNext:false,
-            allowSlidePrev:false,
-            // autoplay:{
-            //     delay: 5000,
-            // },
-            pagination: {
-                el:'#bannerpagination',
-                clickable :true,
-            },
-            on:{
-                init: function(){
-                    swiperAnimateCache(this); //隐藏动画元素
-                    swiperAnimate(this); //初始化完成开始动画
-                },
-                slideChangeTransitionStart:function () {
-                    if ($("#bannerSwiper .swiper-slide").eq(this.activeIndex).hasClass("green")) {
-                        $(".navbar.navbar-fixed-top").addClass("green")
-                            .find(".logo.white").show().siblings('.logo.green').hide();
-                    } else {
-                        $(".navbar.navbar-fixed-top").removeClass("green")
-                            .find(".logo.white").hide().siblings('.logo.green').show();
-                    }
+	window._bd_share_config = {
+		"common" : {
+			"bdSnsKey" : {},
+			"bdText" : "",
+			"bdMini" : "2",
+			"bdMiniList" : false,
+			"bdPic" : "",
+			"bdStyle" : "0",
+			"bdSize" : "16"
+		},
+		"share" : {}
+	};
+	with (document)
+		0[(getElementsByTagName('head')[0] || body)
+				.appendChild(createElement('script')).src = 'http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='
+				+ ~(-new Date() / 36e5)];
+</script>
+<script>
+	var mySwiper = null;
+	$('#fullPage').fullpage(
+			{
+				scrollingSpeed : 500,
+				verticalCentered : false,
+				navigation : true,
+				navigationPosition : 'left',
+				afterLoad : function(origin, destination, direction) {
+					if (destination.index != 2) {
+						$(".index-page2-img").removeClass('show');
+					}
+					if (!mySwiper && destination.index === 0) {
+						var url = localStorage.server_ip
+								+ 'cgi/api/banner?limit=1', params = null;
+						ajaxCall(url, params, getBannerCallback);
+					}
+				},
+				onLeave : function(origin, destination, direction) {
+					switch (destination.index) {
+					case 2:
+						$(".index-page2-img").addClass("show");
+						break;
+					}
+					if ($("#fullPage .section").eq(destination.index).hasClass(
+							"green")) {
+						$(".navbar.navbar-fixed-top").addClass("green").find(
+								".logo.white").show().siblings('.logo.green')
+								.hide();
+						$('#fp-nav.fp-left').removeClass('green');
+					} else {
+						$('#fp-nav.fp-left').addClass('green');
+						$(".navbar.navbar-fixed-top").removeClass("green")
+								.find(".logo.white").hide().siblings(
+										'.logo.green').show();
+					}
+				}
+			});
+	var pageIndex = location.hash.substr(1);
+	if (pageIndex && !isNaN(pageIndex)) {
+		$.fn.fullpage.moveTo(pageIndex);
+	}
+	$(".posBtnList .icon-top").click(function() {
+		$.fn.fullpage.moveTo(1);
+	});
+	/*获取banner回调函数*/
+	function getBannerCallback(resultData) {
+		if (resultData.err !== 0)
+			return;
+		var data = resultData.data;
+		var imgFlag = getPlatformFlag() ? 'img_pc' : 'img_wap';
+		var swiperSlideHTML = '';
+		for (var i = 0, len = data.length; i < len; i++) {
+			swiperSlideHTML += '<div class="swiper-slide green">'
+					+ '<img src="'
+					+ (localStorage.server_ip + data[i][imgFlag])
+					+ '" alt="" class="banner-bg">'
+					+ '<div class="bannerInfo_container">'
+					+ '<p class="ani bannerInfo" swiper-animate-effect="lightSpeedIn" swiper-animate-duration="0.5s">'
+					+ '<span>'
+					+ data[i].title
+					+ '</span>'
+					+ '</p>'
+					+ '<img src="./images/index_page1_icon1.png" alt="" class="ani bannerInfo-img" swiper-animate-effect="zoomIn" swiper-animate-duration="0.5s" swiper-animate-delay="0.3s">'
+					+ '</div>' + '</div>'
+		}
+		$('#bannerSwiper .swiper-wrapper').html(swiperSlideHTML);
+		mySwiper = new Swiper('#bannerSwiper', {
+			// loop: true,
+			speed : 600,
+			grabCursor : true,
+			parallax : true,
+			allowSlideNext : false,
+			allowSlidePrev : false,
+			// autoplay:{
+			//     delay: 5000,
+			// },
+			pagination : {
+				el : '#bannerpagination',
+				clickable : true,
+			},
+			on : {
+				init : function() {
+					swiperAnimateCache(this); //隐藏动画元素
+					swiperAnimate(this); //初始化完成开始动画
+				},
+				slideChangeTransitionStart : function() {
+					if ($("#bannerSwiper .swiper-slide").eq(this.activeIndex)
+							.hasClass("green")) {
+						$(".navbar.navbar-fixed-top").addClass("green").find(
+								".logo.white").show().siblings('.logo.green')
+								.hide();
+					} else {
+						$(".navbar.navbar-fixed-top").removeClass("green")
+								.find(".logo.white").hide().siblings(
+										'.logo.green').show();
+					}
 
-                },
-                slideChangeTransitionEnd: function(){
-                    swiperAnimate(this); //每个slide切换结束时也运行当前slide动画
-                }
-            }
+				},
+				slideChangeTransitionEnd : function() {
+					swiperAnimate(this); //每个slide切换结束时也运行当前slide动画
+				}
+			}
 
-        });
-    }
-    /*获取banner回调函数*/
+		});
+	}
+	/*获取banner回调函数*/
 </script>
 </html>
