@@ -36,7 +36,7 @@ body {
 a:active, a:hover, a:visited {
     text-decoration: none;
 }
-.footer .footer-bottom p,.footer .footer-bottom a{color: #808080;}
+.footer .footer-bottom p,.footer .footer-bottom a{color: #DADADA;}
 .footer .footer-bottom p,.footer .footer-bottom a{margin-bottom: 10px;}
 .posBtnList{position: fixed;right: 0;z-index: 10;}
 .posBtnList .posBtnItem>a:hover{opacity: .8;filter: alpha(opacity=80);}
@@ -66,17 +66,17 @@ a:active, a:hover, a:visited {
 .RQcodeContainer .RQcodeImg,
 .RQcodeContainer .RQcodeInfo{float: left;color: #303030;font-size: 14px;}
 .RQcodeContainer .RQcodeImg img{display: block;width: 100%;height: auto}
-.RQcodeContainer .contactInfo p{color: #808080;margin-bottom: 0;}
+.RQcodeContainer .contactInfo p{color: #DADADA;margin-bottom: 0;}
 .RQcodeContainer .contactInfo a,
-.RQcodeContainer .contactInfo span:nth-of-type(1){display: -webkit-inline-box;color: #808080; font-size: 14px;}
+.RQcodeContainer .contactInfo span:nth-of-type(1){display: -webkit-inline-box;color: #DADADA; font-size: 14px;}
 .RQcodeContainer .contactInfo a:hover{color: #ffffff;text-decoration: none;}
 .callQQ{display:block;background: url(../images/qq_icon.png) no-repeat left center;padding-left: 26px;line-height: 16px;color: #303030;font-size: 14px;}
 .callQQ:hover{text-decoration: none;font-weight: bold;color: #303030;}
-.footer .footer-top .RQcodeInfo{color: #808080}
+.footer .footer-top .RQcodeInfo{color: #DADADA}
 .footer .footer-top .row.RQcodeContainer{margin: 0}
 .footer .footer-bottom{text-align: center;}
-.footer .footer-links h4 { font-size: 2rem; font-weight: 200; color: #808080; margin-bottom: 10px; margin-top: 1rem;}
-.footer .footer-links a {margin-top: .6rem; color: #808080; margin-right: 14px; display: inline-block; font-size: 1.25rem;}
+.footer .footer-links h4 { font-size: 2rem; font-weight: 200; color: #DADADA; margin-bottom: 10px; margin-top: 1rem;}
+.footer .footer-links a {margin-top: .6rem; color: #DADADA; margin-right: 14px; display: inline-block; font-size: 1.25rem;}
 .modal-sm {width: 360px;}
 /*错误提示信息的样式*/
 .tips { position: fixed; width: 100%; max-width: 300px; margin: auto; bottom: 40%; left: 0; right: 0; text-align: center; z-index: 1001; }
@@ -100,7 +100,7 @@ a:active, a:hover, a:visited {
     /* .footer .footer-top{padding-bottom: 2rem;} */
     .footer .footer-nav{padding: 2.5rem 0;border-bottom: 1px solid #ffffff;}
     .footer .footer-nav>.col-sm-2{width: 20%;}
-    .footer .footer-nav a, .footer .footer-nav h4, .footer .footer-nav p{color: #808080;}
+    .footer .footer-nav a, .footer .footer-nav h4, .footer .footer-nav p{color: #DADADA;}
     .footer .footer-nav li{cursor:pointer; }
     .footer .footer-nav a:hover{font-weight: bold;}
     .footer .footer-nav h4{font-size: 14px;padding-bottom: .8rem;}
@@ -118,7 +118,7 @@ a:active, a:hover, a:visited {
     .RQcodeContainer .RQcodeInfo span{display: block;}
     .RQcodeContainer .RQcodeInfo span:nth-of-type(1) {margin-top: 20px;}
     .RQcodeContainer .RQcodeInfo span:nth-of-type(2) {margin-top: 16px;}
-    .RQcodeContainer .contactInfo{font-size:  1.05rem;}
+    .RQcodeContainer .contactInfo{font-size:  14px;}
     .RQcodeContainer .contactInfo span:nth-of-type(1),
     .RQcodeContainer .contactInfo a{
         margin-top: 15px;
@@ -151,4 +151,12 @@ a:active, a:hover, a:visited {
         width: 970px;
         padding-left: 0;
     }
+}
+.friend-link-item {
+    display: inline-block;
+    margin-right: 30px;
+    font-size: 14px;
+    line-height: 18px;
+    color: #DADADA;
+    margin-bottom: 10px;
 }
