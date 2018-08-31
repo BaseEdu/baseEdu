@@ -91,7 +91,7 @@ a:active, a:hover, a:visited {
     .navbar .menu-con a.current,.navbar .menu-con a:hover {font-weight: 700;}
     .navbar .menu-con a {font-size:1.25rem;line-height: 2.9375rem;margin: 0 2.5rem;color: #0d858e;}
     .navbar .menu-con-right {position: absolute;right: 3%;top: 50%;transform: translateY(-50%);-webkit-transform: translateY(-50%);float: right;text-align: center;cursor: pointer;}
-    .navbar .menu-con-right a{font-size: 1.25rem;height: 2.9375rem;line-height: 2.4rem;padding: 0 1.875rem;color: #0d858e;border:1px solid #0d858e;border-radius: 1.46875rem;}
+    .navbar .menu-con-right a{font-size: 1.25rem;line-height: 2.4rem;padding: 0 1.875rem;color: #0d858e;border:1px solid #0d858e;border-radius: 1.46875rem;}
     .navbar .menu-con-right a:first-of-type{margin-right: 1.875rem;}
     .navbar .menu-con-right a:hover{background-color: #0d858e;color: #ffffff;}
     .navbar.green .menu-con a{color: #ffffff;}
