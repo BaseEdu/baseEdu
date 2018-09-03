@@ -193,3 +193,29 @@ a:active, a:hover, a:visited {
     color: #DADADA;
     margin-bottom: 10px;
 }
+
+
+.center{
+    margin-top:11rem;
+    font-size: 2.5rem;
+    text-align:center;
+    font-weight:800;
+}
+
+.center span {
+	font-size: 1.17rem;
+	font-weight:1;
+}
+
+.center_white{
+    margin-top:13rem;
+    font-size: 2.5rem;
+    text-align:center;
+    font-weight:800;
+    color: white;
+}
+
+.center_white span {
+	font-size: 1.17rem;
+	font-weight:1;
+}
