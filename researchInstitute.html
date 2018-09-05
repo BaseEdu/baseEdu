@@ -8,362 +8,404 @@
     <meta name="keywords" content="倍思教育|倍思教育科技">
     <title>研究院</title>
     <link rel="stylesheet" type="text/css" href="https://v3.bootcss.com/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.0.2/fullpage.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.3.5/css/swiper.min.css"/>
+    <link rel="stylesheet" type="text/css" href="./css/animate.min.css">
     <link rel="stylesheet" type="text/css" href="./css/common.css">
     <style type="text/css">
-        .bannerContainer{width: 100%;position: relative;z-index: 1;}
-        .bannerContainer .banner-img{display: block;width: 100%;height: auto;position: relative;z-index: 1;}
-        section.main-con{background-color: #f8f8f8;}
-        section.main-con .container .intro{font-size: 1.125rem;color: #303030;line-height: 1.78;margin: 3.375rem 0 4rem;}
-        section.main-con .container .icon-container{margin-bottom: 3.75rem;}
-        section.main-con .container p.icon span:nth-of-type(2){font-size: 1.625rem;margin-top: 1.875rem;}
-        #scrollUp {display: none;position: absolute!important;top:0;left: 0;background-image: url(./images/icon_top.png);background-size: 100% auto;width: 50px;height: 50px;}
-        #scrollUp:hover,#scrollUp:hover+.posBtnItem{opacity: .8;filter: alpha(opacity=80);}
-        #scrollUp-active{border: none!important;}
-        @media (min-width: 1600px) {
-            section.main-con .container{padding: 0;}
-            section.main-con .container .intro{font-size: 1rem;}
+        html, body {position: relative;height: 100%;}
+        .main-container,.swiper-container {width: 100%;height: 100%;}
+        .swiper-container-vertical>.swiper-pagination-bullets .swiper-pagination-bullet{
+            /*margin: 1.34375rem 0.09375rem;background: transparent;border: 1px solid #fefefe;*/
+            /*width:0.5625rem;height: 0.5625rem;*/
+            width: 0.75rem;height: 2rem;border-radius: 0.375rem;position: relative;background: transparent;
+            opacity: 1;
+            -webkit-transition: all .1s ease-in-out;-moz-transition: all .1s ease-in-out;-o-transition: all .1s ease-in-out;transition: all .1s ease-in-out;}
+        .swiper-container-vertical>.swiper-pagination-bullets .swiper-pagination-bullet::after{
+            display: block;content:'';width:0.5625rem;height: 0.5625rem;visibility: visible;border: 1px solid #fefefe;border-radius: 50%;
+            position: absolute;left: 0.09375rem;top: 0.71875rem;
+            -webkit-transition: all .1s ease-in-out;-moz-transition: all .1s ease-in-out;-o-transition: all .1s ease-in-out;transition: all .1s ease-in-out;
         }
+        .swiper-container-vertical>.swiper-pagination-bullets .swiper-pagination-bullet:hover:after{
+            transform: scale(1.2);-webkit-transform: scale(1.2);
+        }
+        .swiper-container-vertical>.swiper-pagination-bullets{left: 3.1875rem;right: auto;}
+        .swiper-container-vertical>.swiper-pagination-bullets .swiper-pagination-bullet-active{width: 0.75rem;height: 2rem;border-radius: 0.375rem;background-color: #fefefe;margin: 0!important;}
+        .swiper-container-vertical>.swiper-pagination-bullets .swiper-pagination-bullet-active:after{visibility: hidden;}
+        .swiper-container-vertical>.swiper-pagination-bullets.green  .swiper-pagination-bullet{border-color:#0d858e;}
+        .swiper-container-vertical>.swiper-pagination-bullets.green  .swiper-pagination-bullet::after{
+            border-color:#0d858e;
+        }
+        .swiper-container-vertical>.swiper-pagination-bullets.green  .swiper-pagination-bullet-active{background-color: #0d858e;}
+        .swiper-slide {overflow: hidden;
+            /*background: #f9f9f9;*/
+            /* Center slide text vertically */
+            /*display: -webkit-box;*/
+            /*display: -ms-flexbox;*/
+            /*display: -webkit-flex;*/
+            /*display: flex;*/
+            /*-webkit-box-pack: center;*/
+            /*-ms-flex-pack: center;*/
+            /*-webkit-justify-content: center;*/
+            /*justify-content: center;*/
+            /*-webkit-box-align: center;*/
+            /*-ms-flex-align: center;*/
+            /*-webkit-align-items: center;*/
+            /*align-items: center;*/
+        }
+        .swiper-bg{display:block;width: 100%;height: auto;position: relative;z-index: 1;}
+        /*.swiper-img-circle{position: absolute;left: 0;top: 50%;transform: translateY(-50%);-webkit-transform: translateY(-50%);}*/
+        .icon-box{position: absolute;left: 0;top: 0;width: 100%;}
+        .swiper-img-container{display:block;height: 100%;width: auto;position: absolute;top:0;left: 50%;z-index: 3;transform: translateX(-50%);-webkit-transform: translateX(-50%);}
+        .swiper-img-container .swiper-img-bg{display:block;height: 100%;width: auto;position: relative;z-index: 1;opacity: 0;}
+        .swiper-img{display:block;height: 100%;width: auto;position: absolute;top:0;left: 0;z-index: 3;}
         @media (min-width: 768px){
-            .container p.icon span:nth-of-type(1) img{
-                transition: all linear 0.3s;
-                -webkit-transition: all linear 0.3s;
+            .icon-scale{width: auto;cursor: pointer;top: 45%;}
+            .icon-scale .icon-scale-img,.icon-scale .icon-scale-info{display: block;}
+            .icon-scale .icon-scale-info>i{display: block;font-style: normal;}
+            .icon-scale .icon-scale-img img,
+            .swiper-img img{display:block;width: 100%;height: auto;}
+            /*.icon-scale img:first-of-type{*/
+            /*transition: all linear 0.3s;*/
+            /*-webkit-transition: all linear 0.3s;*/
+            /*}*/
+            /*.icon-scale:hover img:first-of-type{*/
+            /*transform: scale(1.1);*/
+            /*-webkit-transform: scale(1.1);*/
+            /*}*/
+            .swiper-page1 .icon-scale{height:33.333333%;}
+            .swiper-page1 .icon-scale .icon-scale-img{height: 100%;}
+            .swiper-page1 .icon-scale .icon-scale-img img{width:auto;height: 100%;}
+            .swiper-page1 .icon-scale.icon1{left: 17.708333%;}
+            .swiper-page1 .icon-scale.icon2{left: 33.958333%;}
+            .swiper-page1 .icon-scale.icon3{left: 50.208333%;}
+            .swiper-page1 .icon-scale.icon4{left: 66.458333%;}
+            .swiper-page1 .icon-scale .icon-scale-info{margin-top: 0.875rem;}
+            .swiper-page1 .icon-scale .icon-scale-info>i{line-height:1.76;font-size: 1.05rem;color: #ffffff;}
+            .footer .footer-nav a, .footer .footer-nav p:first-child {
+                display: block;
+                margin-bottom: 4px;
             }
-            .container p.icon span:nth-of-type(1) img:hover{
-                transform: scale(1.2);
-                -webkit-transform: scale(1.2);
+            .footer .footer-links h4{margin-bottom: 4px;margin-top: 4px;}
+            .footer .footer-bottom {  padding-top: 1rem; }
+            .footer .footer-bottom p, .footer .footer-bottom a {
+                margin-bottom:4px;
             }
+            .swiper-page1,.swiper-page2{background-position: center center;-webkit-background-size: cover; -moz-background-size: cover; -ms-background-size: cover; -o-background-size: cover; background-size: cover;}
+            .swiper-page1{background-image: url("./images/researchInstitute_banner.png");}
+            .swiper-page2{background-image: url("./images/researchInstitute_page2_bg.png")}
         }
-        @media (max-width: 768px) {
-            section.main-con .container .intro{font-size: 1.5456rem;text-align: left;text-indent: 2em;}
-            section.main-con .container .intro>span{display: inline;}
-            section.main-con .container .icon-container{margin-bottom: 2.08rem;}
-            section.main-con .container .icon-container img{width: 100%;height: auto}
-            section.main-con .container p.icon span:nth-of-type(1)>img{transform: scale(0.8);-webkit-transform: scale(0.8);}
-            section.main-con .container p.icon span:nth-of-type(2){font-size: 1.5456rem;margin-top:0.3rem;}
-        }
+        /*@media (min-width: 1200px) {*/
+        /*!*.swiper-page3 .swiper-img{width: 90%;left: 5%}*!*/
+        /*.swiper-img{width: 90%;left: 5%}*/
+        /*}*/
     </style>
 </head>
 <body>
-	<!--导航部分-->
-	<div class="navbar navbar-fixed-top green clearfix">
-	    <i class="icon-menu hidden-lg hidden-md"></i>
-	    <a href="index.html" class="dpb logo white">
-	    	<img src="images/logo.png" alt="">
-	    </a>
-	    <a href="index.html" class="dpnone logo green  hidden-xs hidden-sm">
-	    	<img src="images/logo2.png" alt="">
-	    </a>
-	    <div class="menu-container hidden-lg hidden-md">
-	        <a href="index.html" class="dpb logo white">
-	        	<img src="images/logo.png" alt="">
-	        </a>
-	        <i class="icon-close"></i>
-	    </div>
-	    <div class="menu-con clearfix">
-	        <a href="index.html" class="pull-left home">首页</a>
-	        <a href="productCenter.html" class="pull-left">产品中心</a>
-	        <a href="serviceCenter.html" class="pull-left">服务中心</a>
-	        <a href="researchInstitute.html" class="current pull-left">研究院</a>
-	        <a href="aboutUs.html" class="pull-left">关于我们</a>
-	    </div>
-	    <div class="menu-con-right clearfix">
-	        <a href="applyAgent.html" class="pull-left">申请代理</a>
-	        <a href="applyAgentTry.html" class="pull-left">申请试用</a>
-	    </div>
-	</div>
-	<!--导航部分-->
-	<!--banner部分-->
-	<div class="bannerContainer">
-	    <img src="./images/researchInstitute_banner.png" alt="" class="banner-img">
-	</div>
-	<!--banner部分-->
-	<!--content部分-->
-	<section class="main-con">
-	    <div class="container">
-	        <p class="intro text-center">
-	            <span class="dpb">深圳市倍思教育研究院遵守中国国家宪法、法律、法规和政策，遵守社会道德风尚，积极响应国家教育改革号召。</span>
-	            <span class="dpb">在教育国际化和信息化大背景下，研究院利用倍思教育和誉天智骏国际教育集团现有的资源及人力、物力，聘请国内外知名教育专家、学校管理者</span>
-	            <span class="dpb">和ＩＴ技术人员，致力于教育政策、教育热点、学校管理和教育科技产品的研究、开发，为实现中国基础教育教学管理智能化和信息化，</span>
-	            <span class="dpb">以及国家教育部发布的《教育信息化２.０行动计划》提出的目标贡献力量。</span>
-	            <span class="dpb">倍思教育研究院致力通过研发，为中国广大中小学、师生和家长提供科学、高效、方便的智慧产品和服务，从而提升学校管理效能，提高教学质量。</span>
-	        </p>
-	        <div class="row icon-container">
-	            <p class="col-md-2  hidden-xs hidden-sm"></p>
-	            <p class="col-md-2 col-xs-3 icon text-center">
-	                <span class="dpb">
-	                    <img src="./images/researchInstitute_icon1.png" alt="">
-	                </span>
-	                <span class="dpb">教育政策研究</span>
-	            </p>
-	            <p class="col-md-2 col-xs-3 icon text-center">
-	                <span class="dpb">
-	                    <img src="./images/researchInstitute_icon2.png" alt="">
-	                </span>
-	                <span class="dpb">教育热点研究</span>
-	            </p>
-	            <p class="col-md-2 col-xs-3 icon text-center">
-	                <span class="dpb">
-	                    <img src="./images/researchInstitute_icon3.png" alt="">
-	                </span>
-	                <span class="dpb">教育科技产品研究</span>
-	            </p>
-	            <p class="col-md-2 col-xs-3 icon text-center">
-	                <span class="dpb">
-	                    <img src="./images/researchInstitute_icon4.png" alt="">
-	                </span>
-	                <span class="dpb">教育产品应用研究</span>
-	            </p>
-	            <p class="col-md-2   hidden-xs hidden-sm"></p>
-	        </div>
-	    </div>
-		<!--content部分-->
-		<!--底部内容-->
-		<div class="section footer green">
-			<div class="hidden-xs hidden-sm" style="background-color: #2c2d2d">
-				<div class="container">
-					<div class="hidden-xs hidden-sm footer-nav"
-						style="padding: 0; border-bottom: none; display: flex; padding-top:10rem; padding-bottom:1.5rem;justify-content: space-between; border-bottom: 1px solid #808080;">
-						<div>
-							<h4>首页</h4>
-							<ul class="list-unstyled">
-								<li><a href="index.html#1">智慧教学</a></li>
-								<li><a href="index.html#2">公司简介</a></li>
-								<li><a href="index.html#3">平台功能</a></li>
-								<li><a href="index.html#4">服务体系 </a></li>
-							</ul>
-						</div>
-						<div>
-							<h4>产品中心</h4>
-							<ul class="list-unstyled">
-								<li><a href="productCenter.html#1">平台介绍</a></li>
-								<li><a href="productCenter.html#3">产品价值</a></li>
-								<li><a href="productCenter.html#4">新高考选排课</a></li>
-								<li><a href="productCenter.html#5">移动端简介</a></li>
-							</ul>
-						</div>
-						<div>
-							<h4>服务中心</h4>
-							<ul class="list-unstyled">
-								<li><a href="serviceCenter.html#1">服务体系</a></li>
-								<li><a href="serviceCenter.html#2">服务流程</a></li>
-								<li><a href="serviceCenter.html#3">专业团队</a></li>
-							</ul>
-						</div>
-						<div>
-							<h4>研究院</h4>
-							<ul class="list-unstyled">
-								<li><a href="researchInstitute.html">教育政策研究</a></li>
-								<li><a href="researchInstitute.html">教育热点研究</a></li>
-								<li><a href="researchInstitute.html">教育科技产品研究</a></li>
-								<li><a href="researchInstitute.html">教育产品应用研究</a></li>
-							</ul>
-						</div>
-						<div>
-							<h4>关于我们</h4>
-							<ul class="list-unstyled">
-								<li><a href="aboutUs.html#1">公司介绍</a></li>
-								<li><a href="aboutUs.html#1">企业文化</a></li>
-								<li><a href="aboutUs.html#2">合作伙伴</a></li>
-								<li><a href="aboutUs.html#3">联系我们</a></li>
-							</ul>
-						</div>
-					</div>
-					<div class="links" style="padding-top:1rem; padding-bottom:1rem; border-bottom: 1px solid #808080;">
-						<a href="http://www.moe.gov.cn/" class="friend-link-item" target="_blank" >中华人民共和国教育部</a> 
-						<a href="http://www.cse.edu.cn/" target="_blank" class="friend-link-item">中国教育学会</a> 
-						<a href="http://www.chinaedu.edu.cn/" target="_blank" class="friend-link-item">中国教育信息网</a> 
-						<a href="http://www.jyb.cn/" target="_blank" class="friend-link-item">中国教育新闻网</a> 
-						<a href="http://www.bnu.edu.cn/" target="_blank" class="friend-link-item">北京师范大学</a> 
-						<a href="https://www.ecnu.edu.cn/" target="_blank" class="friend-link-item">华东师范大学</a> 
-						<a href="http://www.naea.edu.cn/" target="_blank" class="friend-link-item">国家教育行政学院</a> 
-						<a href="http://www.enaea.edu.cn/" target="_blank" class="friend-link-item">中国教育干部网络学院</a> 
-						<a href="http://www.ttfs-edu.com/" target="_blank" class="friend-link-item">深圳市誉天智骏教育科技有限公司</a>
-					</div>
-				</div>
-			</div>
-			<div class="footer-top" style="background-color: #2c2d2d;">
-				<div class="container" style="padding: 15px 0;">
-					<div class="row RQcodeContainer">
-						<div class="col-md-3 contactInfo" style="padding: 6px 0;">
-							<p>
-								服务热线：<a href="tel:4009263008">400-926-3008</a>
-							</p>
-							<p>
-								公司邮箱：<a href="mailto:base@51basejy.com">base@51basejy.com</a>
-							</p>
-						</div>
-						<div class="col-md-3">
-							<div class="RQcodeImg">
-								<img src="./images/baseWechatApp.png" alt="">
-							</div>
-							<p class="RQcodeInfo">
-								<span>扫码关注：</span> <span>倍思教育科技小程序</span>
-							</p>
-						</div>
-						<div class="col-md-3">
-							<div class="RQcodeImg">
-								<img src="./images/baseWechatService.png" alt="">
-							</div>
-							<p class="RQcodeInfo">
-								<span>扫码关注：</span> <span>倍思教育科技服务号</span>
-							</p>
-						</div>
-						<div class="col-md-3">
-							<div class="RQcodeImg">
-								<img src="./images/baseWechatPublic.png" alt="">
-							</div>
-							<p class="RQcodeInfo">
-								<span>扫码关注：</span> <span>倍思教育科技订阅号</span>
-							</p>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="container" style="padding: 25px 0;">
-				<div class="footer-bottom" >
-					<p class="text-center hidden-xs hidden-sm">
-						Copyright © 2018 Base education. All Rights Reserved</p>
-					<p class="row address text-center hidden">
-						<span>公司地址：深圳市福田区福华一路98号卓越大厦409室</span> 
-						<span>热线电话：<a href="tel:4009263008">400-926-3008</a>
-						</span>
-					</p>
-					<p class="copyright text-center">
-						<span>深圳市倍思教育科技有限公司 版权所有 </span> 
-						<span style="margin-left: 0.5rem;">
-							<a href="http://www.miitbeian.gov.cn" target="_blank">粤ICP备18074306号</a>
-						</span>
-					</p>
-				</div>
-			</div>
-		</div>
-	</section>
-	<!--底部内容-->
-	<!--浮动按钮-->
-	<div class="posBtnList">
-	    <div class="posBtnItem">
-	        <a href="javascript:void(0)" class="dpb icon-top">
-	            <img src="./images/icon_top.png" alt="">
-	        </a>
-	    </div>
-	    <div class="posBtnItem">
-	        <a href="javascript:void(0)" class="dpb"  data-toggle="modal" data-target=".wechatModal">
-	            <img src="./images/icon_share_wechat.png" alt="">
-	        </a>
-	    </div>
-	    <div class="posBtnItem">
-	        <a href="javascript:void(0)"  class="dpb"  data-toggle="modal" data-target=".QQModal">
-	            <img src="./images/icon_share_QQ.png" alt="">
-	        </a>
-	    </div>
-	    <!--<div class="bdsharebuttonbox">-->
-	    <!--<a href="#" class="bds_more dpnone" data-cmd="more"></a>-->
-	    <!--<a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信">-->
-	    <!--&lt;!&ndash;<img src="./images/icon_share_wechat.png" alt="">&ndash;&gt;-->
-	    <!--</a>-->
-	    <!--<a href="#" class="bds_sqq" data-cmd="sqq" title="分享到QQ好友">-->
-	    <!--&lt;!&ndash;<img src="./images/icon_share_QQ.png" alt="">&ndash;&gt;-->
-	    <!--</a>-->
-	    <!--</div>-->
-	    <div class="posBtnItem">
-	        <a href="tel:4009263008" class="dpb">
-	            <img src="./images/icon_tel.png" alt="">
-	        </a>
-	    </div>
-	</div>
-	<!--浮动按钮-->
-	<!--微信信息-->
-	<div class="modal fade wechatModal" tabindex="-1" role="dialog" aria-labelledby="wechat" style="display: none;">
-	    <div class="modal-dialog modal-lg" role="document">
-	        <div class="modal-content">
-	            <div class="closeBtn">
-	                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
-	                    <img src="images/m_close.png" class="hidden-md hidden-lg">
-	                    <img src="images/close.png" class="hidden-xs hidden-sm">
-	                </button>
-	            </div>
-	            <div class="modal-body row RQcodeContainer">
-	                <div class="col-md-4">
-	                    <div class="RQcodeImg">
-	                        <img src="./images/baseWechatApp.png" alt="">
-	                    </div>
-	                    <p class="RQcodeInfo">
-	                        <span>扫码关注：</span>
-	                        <span>倍思教育科技小程序</span>
-	                    </p>
-	                </div>
-	                <div class="col-md-4">
-	                    <div class="RQcodeImg">
-	                        <img src="./images/baseWechatService.png" alt="">
-	                    </div>
-	                    <p class="RQcodeInfo">
-	                        <span>扫码关注：</span>
-	                        <span>倍思教育科技服务号</span>
-	                    </p>
-	                </div>
-	                <div class="col-md-4">
-	                    <div class="RQcodeImg">
-	                        <img src="./images/baseWechatPublic.png" alt="">
-	                    </div>
-	                    <p class="RQcodeInfo">
-	                        <span>扫码关注：</span>
-	                        <span>倍思教育科技订阅号</span>
-	                    </p>
-	                </div>
-	            </div>
-	        </div>
-	    </div>
-	</div>
-	<!--微信信息-->
-	<!--QQ信息-->
-	<div class="modal fade QQModal" tabindex="-1" role="dialog" aria-labelledby="QQ" style="display: none;">
-	    <div class="modal-dialog modal-sm" role="document">
-	        <div class="modal-content">
-	            <div class="closeBtn">
-	                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
-	                    <img src="images/m_close.png" class="hidden-md hidden-lg">
-	                    <img src="images/close.png" class="hidden-xs hidden-sm">
-	                </button>
-	            </div>
-	            <div class="modal-body row RQcodeContainer">
-	                <a class="callQQ" href="tencent://Message/?Uin=365098380&amp;websiteName=q-zone.qq.com&amp;Menu=yes">
-	                    <span>咨询QQ客服：</span>
-	                    <span>365098380</span>
-	                </a>
-	            </div>
-	        </div>
-	    </div>
-	</div>
-	<!--QQ信息-->
+<!--导航部分-->
+<div class="navbar navbar-fixed-top green clearfix">
+    <i class="icon-menu hidden-lg hidden-md"></i>
+    <a href="index.html" class="dpb logo white"><img src="images/logo.png" alt=""></a>
+    <a href="index.html" class="dpnone logo green  hidden-xs hidden-sm"><img src="images/logo2.png" alt=""></a>
+    <div class="menu-container hidden-lg hidden-md">
+        <a href="index.html" class="dpb logo white"><img src="images/logo.png" alt=""></a>
+        <i class="icon-close"></i>
+    </div>
+    <div class="menu-con clearfix">
+        <a href="index.html" class="pull-left home">首页</a>
+        <a href="productCenter.html" class="pull-left">产品中心</a>
+        <a href="serviceCenter.html" class="pull-left">服务中心</a>
+        <a href="researchInstitute.html" class="current pull-left">研究院</a>
+        <a href="aboutUs.html" class="pull-left">关于我们</a>
+    </div>
+    <div class="menu-con-right clearfix">
+        <a href="applyAgent.html" class="pull-left">申请代理</a>
+        <a href="applyAgentTry.html" class="pull-left">申请试用</a>
+    </div>
+</div>
+<!--导航部分-->
+<!--内容部分-->
+<section class="main-container">
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide swiper-page1 green">
+                <div class="swiper-img-container">
+                    <img src="./images/researchInstitute_banner.png" alt="" class="swiper-img-bg">
+                    <img src="./images/researchInstitute_page1_title.png" alt="" class="ani swiper-img" alt="" swiper-animate-effect="fadeInUp" swiper-animate-duration="0.3s" swiper-animate-delay="0.2s">
+                    <img src="./images/researchInstitute_icon1.png" alt="" class="ani swiper-img" swiper-animate-effect="fadeInUp" swiper-animate-duration="0.5s" swiper-animate-delay=".4s">
+                    <img src="./images/researchInstitute_icon2.png" alt="" class="ani swiper-img" swiper-animate-effect="fadeInUp" swiper-animate-duration="0.5s" swiper-animate-delay=".6s">
+                    <img src="./images/researchInstitute_icon3.png" alt="" class="ani swiper-img" swiper-animate-effect="fadeInUp" swiper-animate-duration="0.5s" swiper-animate-delay=".8s">
+                    <img src="./images/researchInstitute_icon4.png" alt="" class="ani swiper-img" swiper-animate-effect="fadeInUp" swiper-animate-duration="0.5s" swiper-animate-delay="1s">
+                </div>
+            </div>
+            <div class="swiper-slide swiper-page2">
+                <div class="swiper-img-container">
+                    <img src="./images/researchInstitute_page2_bg.png" alt="" class="swiper-img-bg">
+                    <img src="images/researchInstitute_page2_icon1.png" alt="" class="ani swiper-img" swiper-animate-effect="fadeInLeftBig" swiper-animate-duration="0.5s" swiper-animate-delay=".4s">
+                    <img src="images/researchInstitute_page2_icon2.png" alt="" class="ani swiper-img" swiper-animate-effect="fadeInLeftBig" swiper-animate-duration="0.5s" swiper-animate-delay=".6s">
+                    <img src="images/researchInstitute_page2_icon3.png" alt="" class="ani swiper-img" swiper-animate-effect="fadeInLeftBig" swiper-animate-duration="0.5s" swiper-animate-delay=".8s">
+                    <img src="images/researchInstitute_page2_icon4.png" alt="" class="ani swiper-img" swiper-animate-effect="fadeInLeftBig" swiper-animate-duration="0.5s" swiper-animate-delay="1s">
+                    <img src="images/researchInstitute_page2_icon5.png" alt="" class="ani swiper-img" swiper-animate-effect="fadeInLeftBig" swiper-animate-duration="0.5s" swiper-animate-delay="1.2s">
+                    <img src="images/researchInstitute_page2_icon6.png" alt="" class="ani swiper-img" swiper-animate-effect="fadeInLeftBig" swiper-animate-duration="0.5s" swiper-animate-delay="1.4s">
+                </div>
+            </div>
+            <div class="swiper-slide footer green">
+                <img src="images/footer_bg.png" class="footer_bg">
+                <div style="width: 100%;height:72.592593%;background-color:#2c2d2d;" class="footer_top"></div>
+                <div class="swiper-img-container">
+                    <img src="./images/footer_con.png" style="opacity: 1;" class="swiper-img-bg">
+                    <div class="clearfix" style="width:100%;height:100%;position: absolute;top:0;left:0;z-index: 4;padding: 0 23.958333%;">
+                        <div class="clearfix" style="width: 100%;height: 26.388889% ;"></div>
+                        <!--首页-->
+                        <div class="pull-left" style="width:20%;height:10.925926%;">
+                            <a href="index.html#1" class="dpb" style="width: 100%;height: 25%;font-size: 0;">智慧教学</a>
+                            <a href="index.html#2" class="dpb" style="width: 100%;height: 25%;font-size: 0;">公司简介</a>
+                            <a href="index.html#3" class="dpb" style="width: 100%;height: 25%;font-size: 0;">平台功能</a>
+                            <a href="index.html#4" class="dpb" style="width: 100%;height: 25%;font-size: 0;">服务体系 </a>
+                        </div>
+                        <!--首页-->
+                        <!--产品中心-->
+                        <div class="pull-left" style="width:20%;height:10.925926%;">
+                            <a href="productCenter.html#1" class="dpb" style="width: 100%;height: 25%;font-size: 0;">平台介绍</a>
+                            <a href="productCenter.html#3" class="dpb" style="width: 100%;height: 25%;font-size: 0;">产品价值</a>
+                            <a href="productCenter.html#4" class="dpb" style="width: 100%;height: 25%;font-size: 0;">新高考选排课</a>
+                            <a href="productCenter.html#5" class="dpb" style="width: 100%;height: 25%;font-size: 0;">移动端简介</a>
+                        </div>
+                        <!--产品中心-->
+                        <!--服务中心-->
+                        <div class="pull-left" style="width:20%;height:10.925926%;">
+                            <a href="serviceCenter.html#1" class="dpb" style="width: 100%;height: 25%;font-size: 0;">服务体系</a>
+                            <a href="serviceCenter.html#2" class="dpb" style="width: 100%;height: 25%;font-size: 0;">服务流程</a>
+                            <a href="serviceCenter.html#3" class="dpb" style="width: 100%;height: 25%;font-size: 0;">专业团队</a>
+                        </div>
+                        <!--服务中心-->
+                        <!--研究院-->
+                        <div class="pull-left" style="width:20%;height:10.925926%;">
+                            <a href="researchInstitute.html" class="dpb" style="width: 100%;height: 25%;font-size: 0;">教育政策研究</a>
+                            <a href="researchInstitute.html" class="dpb" style="width: 100%;height: 25%;font-size: 0;">教育热点研究</a>
+                            <a href="researchInstitute.html" class="dpb" style="width: 100%;height: 25%;font-size: 0;">教育科技产品研究</a>
+                            <a href="researchInstitute.html" class="dpb" style="width: 100%;height: 25%;font-size: 0;">教育产品应用研究</a>
+                        </div>
+                        <!--研究院-->
+                        <!--关于我们-->
+                        <div class="pull-left" style="width:20%;height:10.925926%;">
+                            <a href="aboutUs.html#1" class="dpb" style="width: 100%;height: 25%;font-size: 0;">公司介绍</a>
+                            <a href="aboutUs.html#1" class="dpb" style="width: 100%;height: 25%;font-size: 0;">企业文化</a>
+                            <a href="aboutUs.html#2" class="dpb" style="width: 100%;height: 25%;font-size: 0;">合作伙伴</a>
+                            <a href="aboutUs.html#3" class="dpb" style="width: 100%;height: 25%;font-size: 0;">联系我们</a>
+                        </div>
+                        <!--关于我们-->
+                        <!--合作链接-->
+                        <div class="pull-left" style="width: 100%;height: 5.925926%;"></div>
+                        <div class="pull-left" style="width: 100%;height: 6.296296%">
+                            <a href="http://www.moe.gov.cn/" class="pull-left" style="width:20.4% ;height: 50%;font-size: 0;">中华人民共和国教育部</a>
+                            <a href="http://www.cse.edu.cn/" class="pull-left" style="width:14.8% ;height: 50%;font-size: 0;">中国教育学会</a>
+                            <a href="http://www.chinaedu.edu.cn/" class="pull-left" style="width:17.2% ;height: 50%;font-size: 0;">中国教育信息网</a>
+                            <a href="http://www.jyb.cn/" class="pull-left" style="width:17.2% ;height: 50%;font-size: 0;">中国教育新闻网</a>
+                            <a href="http://www.bnu.edu.cn/" class="pull-left" style="width:14.2%;height: 50%;font-size: 0;">北京师范大学</a>
+                            <a href="https://www.ecnu.edu.cn/" class="pull-left" style="width:16.5%;height: 50%;font-size: 0;">华东师范大学</a>
+                            <a href="http://www.naea.edu.cn/" class="pull-left" style="width:16% ;height: 50%;font-size: 0;">国家教育行政学院</a>
+                            <a href="http://www.enaea.edu.cn/" class="pull-left" style="width:22.6% ;height: 50%;font-size: 0;">中国教育干部网络学院</a>
+                            <a href="http://www.ttfs-edu.com/" class="pull-left" style="width:31.6%;height: 50%;font-size: 0;">深圳市誉天智骏教育科技有限公司</a>
+                        </div>
+                        <div class="pull-left" style="width: 100%;height: 6.666667%;"></div>
+                        <!--合作链接-->
+                        <!--服务热线&公司邮箱-->
+                        <div class="pull-left" style="width: 100%;height: 6.666667%;">
+                            <a href="tel:4009263008" class="dpb" style="width:35%;height: 50%;font-size: 0;">400-926-3008</a>
+                            <a href="mailto:4009263008" class="dpb" style="width:35%;height: 50%;font-size: 0;">base@51basejy.com</a>
+                        </div>
+                        <div class="pull-left" style="width: 100%;height: 15.925926%;"></div>
+                        <!--服务热线&公司邮箱-->
+                        <!--公司备案-->
+                        <div class="pull-left" style="width: 100%;height: 3.8%">
+                            <div class="pull-left" style="width: 56.4%;height: 100%;"></div>
+                            <a href="http://www.miitbeian.gov.cn" target="_blank" class="pull-left" style="width:26.6%;height: 100%;font-size: 0;">粤ICP备18074306号</a>
+                        </div>
+                        <!--公司备案-->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="swiper-pagination"></div>
+    </div>
+</section>
+<!--内容部分-->
+<!--浮动按钮-->
+<div class="posBtnList">
+    <div class="posBtnItem">
+        <a href="javascript:void(0)" class="dpb icon-top">
+            <img src="./images/icon_top.png" alt="">
+        </a>
+    </div>
+    <div class="posBtnItem">
+        <a href="javascript:void(0)" class="dpb"  data-toggle="modal" data-target=".wechatModal">
+            <img src="./images/icon_share_wechat.png" alt="">
+        </a>
+    </div>
+    <div class="posBtnItem">
+        <a href="javascript:void(0)"  class="dpb"  data-toggle="modal" data-target=".QQModal">
+            <img src="./images/icon_share_QQ.png" alt="">
+        </a>
+    </div>
+    <!--<div class="bdsharebuttonbox">-->
+    <!--<a href="#" class="bds_more dpnone" data-cmd="more"></a>-->
+    <!--<a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信">-->
+    <!--&lt;!&ndash;<img src="./images/icon_share_wechat.png" alt="">&ndash;&gt;-->
+    <!--</a>-->
+    <!--<a href="#" class="bds_sqq" data-cmd="sqq" title="分享到QQ好友">-->
+    <!--&lt;!&ndash;<img src="./images/icon_share_QQ.png" alt="">&ndash;&gt;-->
+    <!--</a>-->
+    <!--</div>-->
+    <div class="posBtnItem">
+        <a href="tel:4009263008" class="dpb">
+            <img src="./images/icon_tel.png" alt="">
+        </a>
+    </div>
+</div>
+<!--浮动按钮-->
+<!--微信信息-->
+<div class="modal fade wechatModal" tabindex="-1" role="dialog" aria-labelledby="wechat" style="display: none;">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="closeBtn">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                    <img src="images/m_close.png" class="hidden-md hidden-lg">
+                    <img src="images/close.png" class="hidden-xs hidden-sm">
+                </button>
+            </div>
+            <div class="modal-body row RQcodeContainer">
+                <div class="col-md-4">
+                    <div class="RQcodeImg">
+                        <img src="./images/baseWechatApp.png" alt="">
+                    </div>
+                    <p class="RQcodeInfo">
+                        <span>扫码关注：</span>
+                        <span>倍思教育科技小程序</span>
+                    </p>
+                </div>
+                <div class="col-md-4">
+                    <div class="RQcodeImg">
+                        <img src="./images/baseWechatService.png" alt="">
+                    </div>
+                    <p class="RQcodeInfo">
+                        <span>扫码关注：</span>
+                        <span>倍思教育科技服务号</span>
+                    </p>
+                </div>
+                <div class="col-md-4">
+                    <div class="RQcodeImg">
+                        <img src="./images/baseWechatPublic.png" alt="">
+                    </div>
+                    <p class="RQcodeInfo">
+                        <span>扫码关注：</span>
+                        <span>倍思教育科技订阅号</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--微信信息-->
+<!--QQ信息-->
+<div class="modal fade QQModal" tabindex="-1" role="dialog" aria-labelledby="QQ" style="display: none;">
+    <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content">
+            <div class="closeBtn">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                    <img src="images/m_close.png" class="hidden-md hidden-lg">
+                    <img src="images/close.png" class="hidden-xs hidden-sm">
+                </button>
+            </div>
+            <div class="modal-body row RQcodeContainer">
+                <a class="callQQ" href="tencent://Message/?Uin=365098380&amp;websiteName=q-zone.qq.com&amp;Menu=yes">
+                    <span>咨询QQ客服：</span>
+                    <span>365098380</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+<!--QQ信息-->
 </body>
-<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
 <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
 <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/scrollup/2.4.1/jquery.scrollUp.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.0.2/fullpage.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.3.5/js/swiper.min.js"></script>
+<script src="./js/swiper.animate.min.js"></script>
 <script src="./js/common.js"></script>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
 <script>
-    /*滚动到顶部*/
-    $(function () {
-        $.scrollUp({
-            animation: 'fade',
-            activeOverlay: '#00FFFF',
-            scrollImg: {
-                active: true,
-                type: 'background',
-                src: './images/icon_top.png'
+    var pageIndex=location.hash.substr(1);
+    pageIndex=pageIndex&&!isNaN(parseInt(pageIndex))?(parseInt(pageIndex)-1):0;
+    var swiper = new Swiper('.swiper-container', {
+        initialSlide:pageIndex,
+        direction: 'vertical',
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+        },
+        speed:600,
+        grabCursor : true,
+        parallax:true,
+        mousewheel: true,
+        on:{
+            init: function(){
+                swiperAnimateCache(this); //隐藏动画元素
+                swiperAnimate(this); //初始化完成开始动画
+            },
+            slideChangeTransitionStart:function () {
+                if ($(".swiper-container .swiper-slide").eq(this.activeIndex).hasClass("green")) {
+                    $(".navbar.navbar-fixed-top").addClass("green")
+                        .find(".logo.white").show().siblings('.logo.green').hide();
+                    $('.swiper-container-vertical>.swiper-pagination-bullets').removeClass('green');
+                } else {
+                    $(".navbar.navbar-fixed-top").removeClass("green")
+                        .find(".logo.white").hide().siblings('.logo.green').show();
+                    $('.swiper-container-vertical>.swiper-pagination-bullets').addClass('green');
+                }
+            },
+            slideChangeTransitionEnd: function(){
+                swiperAnimate(this); //每个slide切换结束时也运行当前slide动画
             }
-        });
+        }
     });
-    /*滚动到顶部*/
-    setTimeout(function () {
-        $('#scrollUp').prependTo($('.posBtnList'));
-        $('#scrollUp').show();
-    },500);
-
+    if ($(".swiper-container .swiper-slide").eq(pageIndex).hasClass("green")) {
+        $(".navbar.navbar-fixed-top").addClass("green")
+            .find(".logo.white").show().siblings('.logo.green').hide();
+        $('.swiper-container-vertical>.swiper-pagination-bullets').removeClass('green');
+    } else {
+        $(".navbar.navbar-fixed-top").removeClass("green")
+            .find(".logo.white").hide().siblings('.logo.green').show();
+        $('.swiper-container-vertical>.swiper-pagination-bullets').addClass('green');
+    }
     $(".posBtnList .icon-top").click(function(){
-        if($('.posBtnList #scrollUp').length>0) return;
-        $('#scrollUp').prependTo($(this).parent());
-        $('#scrollUp').show();
-    })
+        swiper.slideTo(0, 1000, false);//切换到第一个slide，速度为1秒
+        if ($(".swiper-container .swiper-slide").eq(0).hasClass("green")) {
+            $(".navbar.navbar-fixed-top").addClass("green")
+                .find(".logo.white").show().siblings('.logo.green').hide();
+            $('.swiper-container-vertical>.swiper-pagination-bullets').removeClass('green');
+        } else {
+            $(".navbar.navbar-fixed-top").removeClass("green")
+                .find(".logo.white").hide().siblings('.logo.green').show();
+            $('.swiper-container-vertical>.swiper-pagination-bullets').addClass('green');
+        }
+        swiperAnimate(swiper); //每个slide切换结束时也运行当前slide动画
+    });
+    function moveToPage(ev,obj) {
+        ev.preventDefault();
+        var moveToPageIndex=$(obj).attr('href').split('#')[1]-1;
+        swiper.slideTo(moveToPageIndex, 1000, false);//切换到第一个slide，速度为1秒
+        if ($(".swiper-container .swiper-slide").eq(moveToPageIndex).hasClass("green")) {
+            $(".navbar.navbar-fixed-top").addClass("green")
+                .find(".logo.white").show().siblings('.logo.green').hide();
+            $('.swiper-container-vertical>.swiper-pagination-bullets').removeClass('green');
+        } else {
+            $(".navbar.navbar-fixed-top").removeClass("green")
+                .find(".logo.white").hide().siblings('.logo.green').show();
+            $('.swiper-container-vertical>.swiper-pagination-bullets').addClass('green');
+        }
+        swiperAnimate(swiper); //每个slide切换结束时也运行当前slide动画
+    }
 </script>
 </html>
